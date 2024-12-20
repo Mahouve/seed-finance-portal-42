@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown, LineChart, FileText, PiggyBank, Package } from "lucide-react";
+import { Menu, X, ChevronDown, LineChart, FileText, PiggyBank, Package, BookOpen, Users, TrendingUp, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -73,14 +72,51 @@ export const Navigation = () => {
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent">
+                    Nos services <ChevronDown className="ml-1 h-4 w-4" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 w-[400px]">
+                      <div className="grid gap-4">
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <TrendingUp className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Analyse Financière</div>
+                            <p className="text-sm text-muted-foreground">Services d'analyse approfondie des marchés financiers et des opportunités</p>
+                          </div>
+                        </Link>
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <Briefcase className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Conseil en Investissement</div>
+                            <p className="text-sm text-muted-foreground">Conseils personnalisés pour optimiser votre portefeuille d'investissement</p>
+                          </div>
+                        </Link>
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <BookOpen className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Formation</div>
+                            <p className="text-sm text-muted-foreground">Programmes de formation pour développer vos compétences en finance</p>
+                          </div>
+                        </Link>
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <Users className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Accompagnement</div>
+                            <p className="text-sm text-muted-foreground">Suivi personnalisé de vos projets d'investissement</p>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 
             <Link to="#" className="nav-link">
               À propos
-            </Link>
-            <Link to="#" className="nav-link">
-              Nos services
             </Link>
             <Link to="/education" className="nav-link">
               Éducation Financière
@@ -113,11 +149,15 @@ export const Navigation = () => {
                 <Link to="#" className="text-sm text-muted-foreground pl-4">Fonds d'investissement</Link>
                 <Link to="#" className="text-sm text-muted-foreground pl-4">Matières premières</Link>
               </div>
+              <div className="flex flex-col space-y-2 px-4">
+                <div className="font-medium">Nos Services</div>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Analyse Financière</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Conseil en Investissement</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Formation</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Accompagnement</Link>
+              </div>
               <Link to="#" className="nav-link">
                 À propos
-              </Link>
-              <Link to="#" className="nav-link">
-                Nos services
               </Link>
               <Link to="/education" className="nav-link">
                 Éducation Financière
