@@ -1,32 +1,34 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <a href="/" className="text-2xl font-bold text-primary">
+          <Link to="/" className="text-2xl font-bold text-primary">
             Seed Finance
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="nav-link">
+            <Link to="/" className="nav-link">
               Accueil
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to="/education" className="nav-link">
               Éducation
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to="#" className="nav-link">
               Particuliers
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to="#" className="nav-link">
               Entreprises
-            </a>
+            </Link>
             <Button variant="default">Contactez-nous</Button>
           </div>
 
@@ -44,18 +46,18 @@ export const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <a href="#" className="nav-link">
+              <Link to="/" className="nav-link">
                 Accueil
-              </a>
-              <a href="#" className="nav-link">
+              </Link>
+              <Link to="/education" className="nav-link">
                 Éducation
-              </a>
-              <a href="#" className="nav-link">
+              </Link>
+              <Link to="#" className="nav-link">
                 Particuliers
-              </a>
-              <a href="#" className="nav-link">
+              </Link>
+              <Link to="#" className="nav-link">
                 Entreprises
-              </a>
+              </Link>
               <Button variant="default" className="w-full">
                 Contactez-nous
               </Button>
