@@ -1,7 +1,15 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, LineChart, FileText, PiggyBank, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,19 +25,70 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="nav-link">
-              Accueil
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent">
+                    Bourse & Cotations <ChevronDown className="ml-1 h-4 w-4" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 w-[400px]">
+                      <div className="grid gap-4">
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <LineChart className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Actions</div>
+                            <p className="text-sm text-muted-foreground">Actions des entreprises cotées</p>
+                          </div>
+                        </Link>
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <FileText className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Obligations</div>
+                            <p className="text-sm text-muted-foreground">Titres de créance</p>
+                          </div>
+                        </Link>
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <LineChart className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Devises et Indices boursiers</div>
+                            <p className="text-sm text-muted-foreground">Taux de change et indices</p>
+                          </div>
+                        </Link>
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <PiggyBank className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Fonds d'investissement</div>
+                            <p className="text-sm text-muted-foreground">Fonds communs de placement</p>
+                          </div>
+                        </Link>
+                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                          <Package className="h-5 w-5" />
+                          <div className="col-span-3">
+                            <div className="font-medium">Matières premières</div>
+                            <p className="text-sm text-muted-foreground">Commodités et ressources naturelles</p>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            <Link to="#" className="nav-link">
+              À propos
+            </Link>
+            <Link to="#" className="nav-link">
+              Nos services
             </Link>
             <Link to="/education" className="nav-link">
-              Éducation
+              Éducation Financière
             </Link>
             <Link to="#" className="nav-link">
-              Particuliers
+              Support Client
             </Link>
-            <Link to="#" className="nav-link">
-              Entreprises
-            </Link>
-            <Button variant="default">Contactez-nous</Button>
+            <Button variant="default">Dédicace du Livre</Button>
           </div>
 
           {/* Mobile Navigation Button */}
@@ -46,20 +105,28 @@ export const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <Link to="/" className="nav-link">
-                Accueil
+              <div className="flex flex-col space-y-2 px-4">
+                <div className="font-medium">Bourse & Cotations</div>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Actions</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Obligations</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Devises et Indices boursiers</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Fonds d'investissement</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Matières premières</Link>
+              </div>
+              <Link to="#" className="nav-link">
+                À propos
+              </Link>
+              <Link to="#" className="nav-link">
+                Nos services
               </Link>
               <Link to="/education" className="nav-link">
-                Éducation
+                Éducation Financière
               </Link>
               <Link to="#" className="nav-link">
-                Particuliers
-              </Link>
-              <Link to="#" className="nav-link">
-                Entreprises
+                Support Client
               </Link>
               <Button variant="default" className="w-full">
-                Contactez-nous
+                Dédicace du Livre
               </Button>
             </div>
           </div>
