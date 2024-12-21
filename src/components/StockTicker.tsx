@@ -7,6 +7,7 @@ interface StockIndex {
   value: number;
   change: number;
   code: string;
+  previousValue?: number;
 }
 
 const initialStockData: StockIndex[] = [
@@ -15,35 +16,40 @@ const initialStockData: StockIndex[] = [
     indexName: "SEMC.BRVM",
     value: 9674.58,
     change: 0.6,
-    code: "XOF"
+    code: "XOF",
+    previousValue: 9674.58
   },
   {
     country: "Côte d'Ivoire",
     indexName: "SDSC.BRVM",
     value: 4414.52,
     change: 0.7,
-    code: "XOF"
+    code: "XOF",
+    previousValue: 4414.52
   },
   {
     country: "Sénégal",
     indexName: "PALC.BRVM",
     value: 9227.64,
     change: 0.4,
-    code: "XOF"
+    code: "XOF",
+    previousValue: 9227.64
   },
   {
     country: "Bénin",
     indexName: "BICC.BRVM",
     value: 7021.68,
     change: 0.6,
-    code: "XOF"
+    code: "XOF",
+    previousValue: 7021.68
   },
   {
     country: "Burkina Faso",
     indexName: "SGBC.BRVM",
     value: 9674.58,
     change: 0.6,
-    code: "XOF"
+    code: "XOF",
+    previousValue: 9674.58
   }
 ];
 
@@ -51,21 +57,34 @@ export const StockTicker = () => {
   const [stockData, setStockData] = useState<StockIndex[]>(initialStockData);
   const [isUpdating, setIsUpdating] = useState(false);
 
-  // Simuler une mise à jour des données toutes les minutes
+  // Calculer le pourcentage de variation
+  const calculateChange = (currentValue: number, previousValue: number): number => {
+    return ((currentValue - previousValue) / previousValue) * 100;
+  };
+
+  // Mise à jour des données toutes les 10 secondes
   useEffect(() => {
     const updateStockData = () => {
       setIsUpdating(true);
-      // Simuler une légère variation des valeurs
-      const updatedData = stockData.map(stock => ({
-        ...stock,
-        value: stock.value + (Math.random() - 0.5) * 10,
-        change: stock.change + (Math.random() - 0.5) * 0.2
-      }));
+      
+      const updatedData = stockData.map(stock => {
+        const previousValue = stock.value;
+        const newValue = previousValue + (Math.random() - 0.5) * (previousValue * 0.02); // Variation max de 2%
+        const change = calculateChange(newValue, previousValue);
+        
+        return {
+          ...stock,
+          previousValue: previousValue,
+          value: newValue,
+          change: change
+        };
+      });
+      
       setStockData(updatedData);
       setTimeout(() => setIsUpdating(false), 500);
     };
 
-    const interval = setInterval(updateStockData, 60000); // Mise à jour toutes les minutes
+    const interval = setInterval(updateStockData, 10000); // Mise à jour toutes les 10 secondes
     return () => clearInterval(interval);
   }, [stockData]);
 
@@ -94,7 +113,7 @@ export const StockTicker = () => {
               ) : (
                 <ArrowDownIcon className="h-4 w-4" />
               )}
-              {Math.abs(stock.change).toFixed(1)}%
+              {Math.abs(stock.change).toFixed(2)}%
             </span>
           </div>
         ))}
