@@ -28,6 +28,9 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <Link to="#" className="nav-link">
+              Bourses et cotations
+            </Link>
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -65,9 +68,6 @@ export const Navigation = () => {
               Éducation Financière
             </Link>
             <Link to="#" className="nav-link">
-              Bourses et cotations
-            </Link>
-            <Link to="#" className="nav-link">
               Support Client
             </Link>
             <Button variant="default">Dédicace du Livre</Button>
@@ -87,6 +87,9 @@ export const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
+              <Link to="#" className="nav-link">
+                Bourses et cotations
+              </Link>
               <div className="flex flex-col space-y-2 px-4">
                 <div className="font-medium">Nos Services</div>
                 <Link to="/entreprise" className="text-sm text-muted-foreground pl-4">Entreprise</Link>
@@ -97,9 +100,6 @@ export const Navigation = () => {
               </Link>
               <Link to="/education" className="nav-link">
                 Éducation Financière
-              </Link>
-              <Link to="#" className="nav-link">
-                Bourses et cotations
               </Link>
               <Link to="#" className="nav-link">
                 Support Client
