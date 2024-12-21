@@ -5,19 +5,19 @@ import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
-    quote: "Grâce à Seed Finance, j'ai réalisé mes projets financiers !",
+    quote: "SEED Finance nous a permis d'optimiser significativement notre gestion financière.",
     author: "Marie Dubois",
-    title: "Entrepreneure",
+    title: "Directrice Financière, TechCorp SA",
   },
   {
-    quote: "Un service impeccable, rapide et fiable.",
+    quote: "Un accompagnement professionnel qui a transformé notre approche de la trésorerie.",
     author: "Thomas Martin",
-    title: "Directeur Commercial",
+    title: "PDG, Innovations Plus",
   },
   {
-    quote: "L'équipe la plus professionnelle que j'ai rencontrée.",
+    quote: "Leur expertise en réduction des coûts a eu un impact direct sur notre rentabilité.",
     author: "Sophie Bernard",
-    title: "Investisseure",
+    title: "Directrice Générale, GreenTech Solutions",
   },
 ];
 
