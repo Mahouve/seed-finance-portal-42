@@ -7,10 +7,10 @@ export const EducationHero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Text content */}
           <div className="bg-[#D3E4FD] p-12 rounded-2xl shadow-2xl animate-fade-in backdrop-blur-sm bg-opacity-95">
-            <h1 className="text-5xl md:text-6xl font-bold text-[#221F26] uppercase tracking-tight mb-10 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#221F26] uppercase tracking-tight mb-8 leading-tight">
               Éducation Financière
             </h1>
-            <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-light">
               L'éducation financière est essentielle pour aider les Africains à mieux comprendre et gérer leurs finances, en tenant compte des réalités économiques et sociales locales.
             </p>
             <div className="w-40 h-1.5 bg-[#1EAEDB] rounded-full mt-10" />
