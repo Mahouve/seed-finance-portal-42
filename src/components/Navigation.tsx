@@ -28,7 +28,7 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="#" className="nav-link">
+            <Link to="/markets" className="nav-link">
               Bourses et cotations
             </Link>
             <NavigationMenu>
@@ -94,7 +94,7 @@ export const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <Link to="#" className="nav-link">
+              <Link to="/markets" className="nav-link">
                 Bourses et cotations
               </Link>
               <div className="flex flex-col space-y-2 px-4">
