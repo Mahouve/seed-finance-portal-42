@@ -3,7 +3,17 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-const testimonials = [
+type Testimonial = {
+  quote: string;
+  author: string;
+  title: string;
+};
+
+type TestimonialsProps = {
+  testimonials?: Testimonial[];
+};
+
+const defaultTestimonials = [
   {
     quote: "Grâce à Seed Finance, j'ai réalisé mes projets financiers !",
     author: "Marie Dubois",
@@ -21,7 +31,7 @@ const testimonials = [
   },
 ];
 
-export const Testimonials = () => {
+export const Testimonials = ({ testimonials = defaultTestimonials }: TestimonialsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const next = () => {
@@ -39,9 +49,6 @@ export const Testimonials = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Ce que disent nos clients
-        </h2>
         <div className="relative max-w-3xl mx-auto">
           <Card className="border-none shadow-lg">
             <CardContent className="pt-12">
