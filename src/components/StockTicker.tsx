@@ -57,19 +57,17 @@ export const StockTicker = () => {
   const [stockData, setStockData] = useState<StockIndex[]>(initialStockData);
   const [isUpdating, setIsUpdating] = useState(false);
 
-  // Calculer le pourcentage de variation
   const calculateChange = (currentValue: number, previousValue: number): number => {
     return ((currentValue - previousValue) / previousValue) * 100;
   };
 
-  // Mise à jour des données toutes les 10 secondes
   useEffect(() => {
     const updateStockData = () => {
       setIsUpdating(true);
       
       const updatedData = stockData.map(stock => {
         const previousValue = stock.value;
-        const newValue = previousValue + (Math.random() - 0.5) * (previousValue * 0.02); // Variation max de 2%
+        const newValue = previousValue + (Math.random() - 0.5) * (previousValue * 0.02);
         const change = calculateChange(newValue, previousValue);
         
         return {
@@ -84,7 +82,7 @@ export const StockTicker = () => {
       setTimeout(() => setIsUpdating(false), 500);
     };
 
-    const interval = setInterval(updateStockData, 10000); // Mise à jour toutes les 10 secondes
+    const interval = setInterval(updateStockData, 10000);
     return () => clearInterval(interval);
   }, [stockData]);
 
