@@ -15,7 +15,7 @@ export const Navigation = () => {
   const location = useLocation();
 
   return (
-    <nav className="w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <nav className="w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm fixed top-0">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
@@ -34,33 +34,40 @@ export const Navigation = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">
-                    Nos services <ChevronDown className="ml-1 h-4 w-4" />
+                  <NavigationMenuTrigger>
+                    Nos services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <div className="grid gap-4">
-                        <Link to="/entreprise" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <Briefcase className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Entreprise</div>
-                            <p className="text-sm text-muted-foreground">Services financiers pour les entreprises</p>
-                          </div>
-                        </Link>
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <Users className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Particulier</div>
-                            <p className="text-sm text-muted-foreground">Services financiers pour les particuliers</p>
-                          </div>
-                        </Link>
-                      </div>
+                    <div className="grid gap-3 p-4 w-[400px] md:w-[500px]">
+                      <Link 
+                        to="/entreprise" 
+                        className="group grid grid-cols-4 items-center gap-4 p-3 hover:bg-slate-100 rounded-md"
+                      >
+                        <Briefcase className="h-5 w-5" />
+                        <div className="col-span-3">
+                          <div className="font-medium">Entreprise</div>
+                          <p className="text-sm text-muted-foreground">
+                            Services financiers pour les entreprises
+                          </p>
+                        </div>
+                      </Link>
+                      <Link 
+                        to="#" 
+                        className="group grid grid-cols-4 items-center gap-4 p-3 hover:bg-slate-100 rounded-md"
+                      >
+                        <Users className="h-5 w-5" />
+                        <div className="col-span-3">
+                          <div className="font-medium">Particulier</div>
+                          <p className="text-sm text-muted-foreground">
+                            Services financiers pour les particuliers
+                          </p>
+                        </div>
+                      </Link>
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-
             <Link to="#" className="nav-link">
               À propos
             </Link>
@@ -92,8 +99,12 @@ export const Navigation = () => {
               </Link>
               <div className="flex flex-col space-y-2 px-4">
                 <div className="font-medium">Nos Services</div>
-                <Link to="/entreprise" className="text-sm text-muted-foreground pl-4">Entreprise</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Particulier</Link>
+                <Link to="/entreprise" className="text-sm text-muted-foreground pl-4">
+                  Entreprise
+                </Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">
+                  Particulier
+                </Link>
               </div>
               <Link to="#" className="nav-link">
                 À propos
