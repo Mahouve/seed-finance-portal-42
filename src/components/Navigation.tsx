@@ -22,7 +22,7 @@ export const Navigation = () => {
             <img 
               src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
               alt="Seed Finance Logo" 
-              className="h-8"
+              className="h-12"
             />
           </Link>
 
