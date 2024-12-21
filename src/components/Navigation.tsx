@@ -18,8 +18,12 @@ export const Navigation = () => {
     <nav className="w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-2xl font-bold text-primary">
-            Seed Finance
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
+              alt="Seed Finance Logo" 
+              className="h-8"
+            />
           </Link>
 
           {/* Desktop Navigation */}
