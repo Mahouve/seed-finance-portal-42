@@ -32,59 +32,12 @@ export const Navigation = () => {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent">
-                    Bourse & Cotations <ChevronDown className="ml-1 h-4 w-4" />
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <div className="grid gap-4">
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <LineChart className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Actions</div>
-                            <p className="text-sm text-muted-foreground">Actions des entreprises cotées</p>
-                          </div>
-                        </Link>
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <FileText className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Obligations</div>
-                            <p className="text-sm text-muted-foreground">Titres de créance</p>
-                          </div>
-                        </Link>
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <LineChart className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Devises et Indices boursiers</div>
-                            <p className="text-sm text-muted-foreground">Taux de change et indices</p>
-                          </div>
-                        </Link>
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <PiggyBank className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Fonds d'investissement</div>
-                            <p className="text-sm text-muted-foreground">Fonds communs de placement</p>
-                          </div>
-                        </Link>
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <Package className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Matières premières</div>
-                            <p className="text-sm text-muted-foreground">Commodités et ressources naturelles</p>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">
                     Nos services <ChevronDown className="ml-1 h-4 w-4" />
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-3 p-6 w-[400px]">
                       <div className="grid gap-4">
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
+                        <Link to="/enterprise" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
                           <Briefcase className="h-5 w-5" />
                           <div className="col-span-3">
                             <div className="font-medium">Entreprise</div>
@@ -132,16 +85,8 @@ export const Navigation = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               <div className="flex flex-col space-y-2 px-4">
-                <div className="font-medium">Bourse & Cotations</div>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Actions</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Obligations</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Devises et Indices boursiers</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Fonds d'investissement</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Matières premières</Link>
-              </div>
-              <div className="flex flex-col space-y-2 px-4">
                 <div className="font-medium">Nos Services</div>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Entreprise</Link>
+                <Link to="/enterprise" className="text-sm text-muted-foreground pl-4">Entreprise</Link>
                 <Link to="#" className="text-sm text-muted-foreground pl-4">Particulier</Link>
               </div>
               <Link to="#" className="nav-link">
