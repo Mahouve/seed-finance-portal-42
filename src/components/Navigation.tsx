@@ -85,31 +85,17 @@ export const Navigation = () => {
                     <div className="grid gap-3 p-6 w-[400px]">
                       <div className="grid gap-4">
                         <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <TrendingUp className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Analyse Financière</div>
-                            <p className="text-sm text-muted-foreground">Services d'analyse approfondie des marchés financiers et des opportunités</p>
-                          </div>
-                        </Link>
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
                           <Briefcase className="h-5 w-5" />
                           <div className="col-span-3">
-                            <div className="font-medium">Conseil en Investissement</div>
-                            <p className="text-sm text-muted-foreground">Conseils personnalisés pour optimiser votre portefeuille d'investissement</p>
-                          </div>
-                        </Link>
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <BookOpen className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Formation</div>
-                            <p className="text-sm text-muted-foreground">Programmes de formation pour développer vos compétences en finance</p>
+                            <div className="font-medium">Entreprise</div>
+                            <p className="text-sm text-muted-foreground">Services et solutions pour les entreprises</p>
                           </div>
                         </Link>
                         <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
                           <Users className="h-5 w-5" />
                           <div className="col-span-3">
-                            <div className="font-medium">Accompagnement</div>
-                            <p className="text-sm text-muted-foreground">Suivi personnalisé de vos projets d'investissement</p>
+                            <div className="font-medium">Particulier</div>
+                            <p className="text-sm text-muted-foreground">Services pour les particuliers et familles</p>
                           </div>
                         </Link>
                       </div>
@@ -155,10 +141,8 @@ export const Navigation = () => {
               </div>
               <div className="flex flex-col space-y-2 px-4">
                 <div className="font-medium">Nos Services</div>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Analyse Financière</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Conseil en Investissement</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Formation</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Accompagnement</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Entreprise</Link>
+                <Link to="#" className="text-sm text-muted-foreground pl-4">Particulier</Link>
               </div>
               <Link to="#" className="nav-link">
                 À propos
