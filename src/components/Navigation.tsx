@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown, Briefcase, Users, LineChart } from "lucide-react";
+import { Menu, X, ChevronDown, Briefcase, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -51,13 +51,6 @@ export const Navigation = () => {
                             <p className="text-sm text-muted-foreground">Services financiers pour les particuliers</p>
                           </div>
                         </Link>
-                        <Link to="#" className="group grid grid-cols-4 items-center gap-4 p-2 hover:bg-slate-100 rounded-md">
-                          <LineChart className="h-5 w-5" />
-                          <div className="col-span-3">
-                            <div className="font-medium">Bourses et cotations</div>
-                            <p className="text-sm text-muted-foreground">Suivez les marchés financiers</p>
-                          </div>
-                        </Link>
                       </div>
                     </div>
                   </NavigationMenuContent>
@@ -70,6 +63,9 @@ export const Navigation = () => {
             </Link>
             <Link to="/education" className="nav-link">
               Éducation Financière
+            </Link>
+            <Link to="#" className="nav-link">
+              Bourses et cotations
             </Link>
             <Link to="#" className="nav-link">
               Support Client
@@ -95,13 +91,15 @@ export const Navigation = () => {
                 <div className="font-medium">Nos Services</div>
                 <Link to="/entreprise" className="text-sm text-muted-foreground pl-4">Entreprise</Link>
                 <Link to="#" className="text-sm text-muted-foreground pl-4">Particulier</Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">Bourses et cotations</Link>
               </div>
               <Link to="#" className="nav-link">
                 À propos
               </Link>
               <Link to="/education" className="nav-link">
                 Éducation Financière
+              </Link>
+              <Link to="#" className="nav-link">
+                Bourses et cotations
               </Link>
               <Link to="#" className="nav-link">
                 Support Client
