@@ -22,7 +22,6 @@ const Particulier = () => {
 
       <ParticulierServices />
       
-      {/* Testimonials Section */}
       <Testimonials />
       <Footer />
     </div>
