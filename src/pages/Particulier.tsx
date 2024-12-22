@@ -16,7 +16,7 @@ const Particulier = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae')",
+            backgroundImage: "url('https://media.istockphoto.com/id/1324021958/fr/photo/agricultrice-africaine-senior-travaillant-%C3%A0-la-serre-tout-en-tenant-une-grappe-de-bananes.webp?a=1&b=1&s=612x612&w=0&k=20&c=cd_v6SIs7sdJh-Z5DzvYn93o95fayv4IHbKARULmrYc=')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
