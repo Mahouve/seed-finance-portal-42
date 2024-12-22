@@ -1,54 +1,23 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
-import { Values } from "@/components/Values";
-import { Testimonials } from "@/components/Testimonials";
-import { Stats } from "@/components/Stats";
-import { Footer } from "@/components/Footer";
-import { StockTicker } from "@/components/StockTicker";
 import { Services } from "@/components/Services";
 import { Features } from "@/components/Features";
-import { Contact } from "@/components/Contact";
-import { DecorativeElements } from "@/components/DecorativeElements";
+import { Values } from "@/components/Values";
+import { Stats } from "@/components/Stats";
+import { Testimonials } from "@/components/Testimonials";
 import { VideoSection } from "@/components/VideoSection";
-import { useEffect, useRef } from "react";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
+import { StockTicker } from "@/components/StockTicker";
+import { DecorativeElements } from "@/components/DecorativeElements";
 
 const Index = () => {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in", "opacity-100");
-            observerRef.current?.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "50px",
-      }
-    );
-
-    document.querySelectorAll(".scroll-animation").forEach((element) => {
-      element.classList.add("opacity-0");
-      observerRef.current?.observe(element);
-    });
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
-
   return (
     <div className="min-h-screen relative">
       <DecorativeElements />
       <StockTicker />
       <Navigation />
-      <div className="pt-16">
+      <div className="pt-32">
         <div className="scroll-animation">
           <Hero />
         </div>
