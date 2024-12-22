@@ -68,7 +68,7 @@ export const Navigation = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="/about" className="nav-link">
+            <Link to="#" className="nav-link">
               À propos
             </Link>
             <Link to="/education" className="nav-link">
@@ -106,7 +106,7 @@ export const Navigation = () => {
                   Particulier
                 </Link>
               </div>
-              <Link to="/about" className="nav-link">
+              <Link to="#" className="nav-link">
                 À propos
               </Link>
               <Link to="/education" className="nav-link">
