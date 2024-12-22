@@ -52,7 +52,7 @@ export const Navigation = () => {
                         </div>
                       </Link>
                       <Link 
-                        to="#" 
+                        to="/particulier" 
                         className="group grid grid-cols-4 items-center gap-4 p-3 hover:bg-slate-100 rounded-md"
                       >
                         <Users className="h-5 w-5" />
@@ -102,7 +102,7 @@ export const Navigation = () => {
                 <Link to="/entreprise" className="text-sm text-muted-foreground pl-4">
                   Entreprise
                 </Link>
-                <Link to="#" className="text-sm text-muted-foreground pl-4">
+                <Link to="/particulier" className="text-sm text-muted-foreground pl-4">
                   Particulier
                 </Link>
               </div>
