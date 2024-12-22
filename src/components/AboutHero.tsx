@@ -9,8 +9,10 @@ export const AboutHero = () => {
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('https://media.istockphoto.com/id/1411410526/fr/photo/femme-daffaires-parlant-devant-un-groupe.webp?a=1&b=1&s=612x612&w=0&k=20&c=4838UsTrylj53f68lkGJoDovnmSjcK-dGbwRKDsa_CU=')",
-            backgroundSize: "cover",
+            backgroundSize: "contain",
             backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: "#000"
           }}
         >
           {/* Overlay gradient - Changed to a darker, less blue overlay */}
