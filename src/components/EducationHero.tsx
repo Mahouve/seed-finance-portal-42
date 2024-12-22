@@ -15,7 +15,7 @@ export const EducationHero = () => {
           </div>
           <div className="flex-1 animate-fade-in [animation-delay:200ms]">
             <img
-              src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c"
+              src="https://media.istockphoto.com/id/639468016/fr/photo/le-public-du-s%C3%A9minaire-applaudit-la-jeune-femme-noire-au-lutrin.webp?a=1&b=1&s=612x612&w=0&k=20&c=CH9itAdQ1nDfKD6LielY1kK2MCXv_Ra661uvtgaMreg="
               alt="Education financière"
               className="rounded-lg shadow-xl w-full object-cover h-[400px]"
             />
