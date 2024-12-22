@@ -56,28 +56,27 @@ export const Stats = () => {
     };
   }, []);
 
+  // Créer les animations en dehors de la boucle map
+  const animatedValues = stats.map(stat => useCountAnimation(stat.value, 2000, isVisible));
+
   return (
     <section className="py-20 bg-primary text-white" id="stats-section">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat) => {
-            const animatedValue = useCountAnimation(stat.value, 2000, isVisible);
-            
-            return (
-              <Card
-                key={stat.label}
-                className="border-none bg-white/10 backdrop-blur-sm"
-              >
-                <CardContent className="text-center p-6">
-                  <div className="text-4xl font-bold mb-2">
-                    {animatedValue}
-                    {stat.suffix}
-                  </div>
-                  <p className="text-lg">{stat.label}</p>
-                </CardContent>
-              </Card>
-            );
-          })}
+          {stats.map((stat, index) => (
+            <Card
+              key={stat.label}
+              className="border-none bg-white/10 backdrop-blur-sm"
+            >
+              <CardContent className="text-center p-6">
+                <div className="text-4xl font-bold mb-2">
+                  {animatedValues[index]}
+                  {stat.suffix}
+                </div>
+                <p className="text-lg">{stat.label}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
