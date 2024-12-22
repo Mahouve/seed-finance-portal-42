@@ -9,6 +9,7 @@ export const DecorativeElements = () => {
       </div>
       
       {/* Testimonials section decorative elements */}
+      {/* Right side */}
       <div className="absolute top-[1200px] right-10 text-secondary/30 animate-float" style={{ animationDelay: "0.7s" }}>
         <MessageCircle size={32} className="-rotate-12" />
       </div>
@@ -17,6 +18,17 @@ export const DecorativeElements = () => {
       </div>
       <div className="absolute top-[1250px] right-24 text-primary/30 animate-float" style={{ animationDelay: "1.5s" }}>
         <Sparkles size={24} className="-rotate-12" />
+      </div>
+
+      {/* Left side */}
+      <div className="absolute top-[1200px] left-10 text-secondary/30 animate-float" style={{ animationDelay: "1.8s" }}>
+        <MessageCircle size={32} className="rotate-12" />
+      </div>
+      <div className="absolute top-[1150px] left-32 text-accent/30 animate-float" style={{ animationDelay: "2.1s" }}>
+        <Star size={28} className="-rotate-45" />
+      </div>
+      <div className="absolute top-[1250px] left-24 text-primary/30 animate-float" style={{ animationDelay: "2.4s" }}>
+        <Sparkles size={24} className="rotate-12" />
       </div>
 
       {/* Top left decorative elements */}
