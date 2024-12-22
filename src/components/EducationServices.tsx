@@ -96,9 +96,9 @@ export const EducationServices = () => {
             >
               <div className="flex items-center gap-4 mb-8">
                 <section.icon className="w-8 h-8 text-primary" />
-                <h2 className="text-2xl font-bold text-gray-900">{section.title}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 animate-float">{section.title}</h2>
               </div>
-              <p className="text-gray-600 mb-8">{section.description}</p>
+              <p className="text-gray-600 mb-8 hover:scale-95 transition-transform duration-300">{section.description}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {section.items.map((item) => (
                   <Card 
@@ -109,8 +109,8 @@ export const EducationServices = () => {
                       <div className="p-3 bg-primary/10 rounded-lg mb-4">
                         <item.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                      <p className="text-gray-600 text-sm">{item.description}</p>
+                      <h3 className="text-xl font-semibold mb-3 animate-float">{item.title}</h3>
+                      <p className="text-gray-600 text-sm hover:scale-95 transition-transform duration-300">{item.description}</p>
                       <Button variant="link" className="text-primary mt-4 p-0">
                         En savoir plus →
                       </Button>

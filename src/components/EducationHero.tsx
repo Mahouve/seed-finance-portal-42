@@ -6,10 +6,10 @@ export const EducationHero = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary animate-float">
               Éducation Financière
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed hover:scale-95 transition-transform duration-300">
               L'éducation financière est essentielle pour aider les Africains à mieux comprendre et gérer leurs finances, en tenant compte des réalités économiques et sociales locales.
             </p>
           </div>
