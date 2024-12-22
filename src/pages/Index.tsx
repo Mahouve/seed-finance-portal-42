@@ -9,6 +9,7 @@ import { Services } from "@/components/Services";
 import { Features } from "@/components/Features";
 import { Contact } from "@/components/Contact";
 import { DecorativeElements } from "@/components/DecorativeElements";
+import { VideoSection } from "@/components/VideoSection";
 import { useEffect, useRef } from "react";
 
 const Index = () => {
@@ -66,6 +67,9 @@ const Index = () => {
         <Testimonials />
       </div>
       <div className="scroll-animation [animation-delay:1200ms]">
+        <VideoSection />
+      </div>
+      <div className="scroll-animation [animation-delay:1400ms]">
         <Contact />
       </div>
       <Footer />
