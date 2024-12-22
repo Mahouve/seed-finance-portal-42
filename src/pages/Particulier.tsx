@@ -16,7 +16,7 @@ const Particulier = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1591339494368-63e43b7d8626')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
