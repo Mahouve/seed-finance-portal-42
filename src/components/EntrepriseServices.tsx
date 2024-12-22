@@ -18,7 +18,7 @@ const services = [
     icon: TrendingUp,
     title: "Maximisation des Revenus",
     description: "Nos stratégies sur mesure vous aident à faire fructifier vos excédents et à saisir les opportunités de croissance",
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f" // Image montrant une croissance positive sur un graphique
+    image: "https://images.unsplash.com/photo-1543286386-713bdd548da4" // Image montrant un graphique avec une courbe ascendante
   },
   {
     icon: Wallet,
