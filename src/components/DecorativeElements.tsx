@@ -1,4 +1,4 @@
-import { CreditCard, PiggyBank, Wallet, ChartBar, LineChart, TrendingUp, DollarSign, Coins, Sparkles, MessageCircle } from "lucide-react";
+import { CreditCard, PiggyBank, Wallet, ChartBar, LineChart, TrendingUp, DollarSign, Coins, Sparkles, MessageCircle, Star } from "lucide-react";
 
 export const DecorativeElements = () => {
   return (
@@ -7,13 +7,16 @@ export const DecorativeElements = () => {
       <div className="absolute top-[600px] left-10 text-primary/30 animate-float" style={{ animationDelay: "0.2s" }}>
         <Sparkles size={32} className="rotate-12" />
       </div>
+      
+      {/* Testimonials section decorative elements */}
       <div className="absolute top-[1200px] right-10 text-secondary/30 animate-float" style={{ animationDelay: "0.7s" }}>
         <MessageCircle size={32} className="-rotate-12" />
       </div>
-
-      {/* Testimonials section decorative element */}
-      <div className="absolute top-[1200px] right-[-20px] text-accent/30 animate-float" style={{ animationDelay: "1.2s" }}>
-        <Sparkles size={40} className="rotate-45" />
+      <div className="absolute top-[1150px] right-32 text-accent/30 animate-float" style={{ animationDelay: "1.2s" }}>
+        <Star size={28} className="rotate-45" />
+      </div>
+      <div className="absolute top-[1250px] right-24 text-primary/30 animate-float" style={{ animationDelay: "1.5s" }}>
+        <Sparkles size={24} className="-rotate-12" />
       </div>
 
       {/* Top left decorative elements */}
