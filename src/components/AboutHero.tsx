@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 export const AboutHero = () => {
   return (
     <div>
-      <section className="relative min-h-[60vh] flex items-center">
+      <section className="relative min-h-[60vh] flex items-center w-screen -ml-[2rem]">
         {/* Background Image */}
         <div
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('https://media.istockphoto.com/id/1411410526/fr/photo/femme-daffaires-parlant-devant-un-groupe.webp?a=1&b=1&s=612x612&w=0&k=20&c=4838UsTrylj53f68lkGJoDovnmSjcK-dGbwRKDsa_CU=')",
-            backgroundSize: "contain",
+            backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundColor: "#000"
