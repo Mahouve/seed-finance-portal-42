@@ -23,11 +23,11 @@ const Particulier = () => {
         />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto bg-black/50 p-8 rounded-lg backdrop-blur-sm">
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 animate-fade-in text-white">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 animate-fade-in text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
               Services Financiers pour Particuliers
             </h1>
-            <p className="text-lg text-center mx-auto text-white animate-fade-in">
+            <p className="text-xl text-center mx-auto text-white animate-fade-in font-medium drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
               Les services de SEED Finance visent à fournir une assistance personnalisée et des outils pratiques pour soutenir les particuliers dans leurs décisions financières.
             </p>
           </div>
