@@ -28,8 +28,12 @@ export const Values = () => {
           {values.map((value, index) => (
             <Card key={value.title} className="card-hover border-none shadow-lg">
               <CardHeader className="text-center">
-                <div className="mx-auto w-12 h-12 mb-4 text-primary">
-                  <value.icon size={48} />
+                <div className="mx-auto w-12 h-12 mb-4 text-primary group">
+                  <value.icon 
+                    size={48} 
+                    className="transform transition-all duration-500 group-hover:scale-125 animate-pulse"
+                    style={{ animationDelay: `${index * 200}ms`, animationDuration: '3s' }}
+                  />
                 </div>
                 <CardTitle>{value.title}</CardTitle>
               </CardHeader>

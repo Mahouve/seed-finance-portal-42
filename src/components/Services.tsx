@@ -33,8 +33,12 @@ export const Services = () => {
           {services.map((service, index) => (
             <Card key={service.title} className="border-none shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center">
-                <div className="mx-auto w-12 h-12 mb-4 text-primary">
-                  <service.icon size={48} />
+                <div className="mx-auto w-12 h-12 mb-4 text-primary group">
+                  <service.icon 
+                    size={48} 
+                    className="transform transition-all duration-300 group-hover:scale-110 animate-float" 
+                    style={{ animationDelay: `${index * 200}ms` }}
+                  />
                 </div>
                 <CardTitle>{service.title}</CardTitle>
               </CardHeader>
