@@ -34,7 +34,7 @@ export const WhyChooseUs = () => {
           ))}
         </div>
         <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-6">Développez votre vision</h3>
+          <h3 className="text-2xl font-bold mb-6 text-primary animate-float">Développez votre vision</h3>
           <p className="text-gray-600">
             SEED Finance se positionne ainsi comme un partenaire essentiel pour vous aider à sécuriser 
             et améliorer votre avenir financier. Nous mettons à votre disposition un savoir-faire éprouvé 
