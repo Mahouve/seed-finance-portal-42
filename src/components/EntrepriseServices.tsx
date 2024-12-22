@@ -1,4 +1,5 @@
 import { DollarSign, TrendingUp, Wallet } from "lucide-react";
+import { useEffect, useRef } from "react";
 import {
   Card,
   CardContent,
@@ -12,23 +13,48 @@ const services = [
     icon: DollarSign,
     title: "Réduction des coûts",
     description: "En tenant compte des réalités économiques et fiscales locales, SEED Finance élabore avec vous un plan financier personnalisé pour identifier et rationaliser vos postes de dépenses afin de faire plus avec moins et ainsi soutenir la croissance de votre entreprise",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c" // Image montrant des graphiques financiers en baisse
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c"
   },
   {
     icon: TrendingUp,
     title: "Maximisation des Revenus",
     description: "Nos stratégies sur mesure vous aident à faire fructifier vos excédents et à saisir les opportunités de croissance",
-    image: "https://images.unsplash.com/photo-1543286386-713bdd548da4" // Image montrant un graphique avec une courbe ascendante
+    image: "https://images.unsplash.com/photo-1543286386-713bdd548da4"
   },
   {
     icon: Wallet,
     title: "Optimisation de la trésorerie",
     description: "Nous vous aidons à maximiser la rentabilité de vos excédents financiers tout en assurant une gestion fluide de la trésorerie quotidienne.",
-    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0" // Image montrant des pièces et billets bien organisés
+    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0"
   }
 ];
 
 export const EntrepriseServices = () => {
+  const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-float');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    imagesRef.current.forEach((image) => {
+      if (image) observer.observe(image);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-20 bg-white mt-16">
       <div className="container mx-auto px-4">
@@ -49,9 +75,15 @@ export const EntrepriseServices = () => {
               <CardHeader>
                 <div className="w-full h-48 mb-4 overflow-hidden rounded-t-lg">
                   <img
+                    ref={el => imagesRef.current[index] = el}
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500 opacity-0"
+                    style={{
+                      transitionProperty: 'opacity, transform',
+                      transitionDuration: '0.5s',
+                      transitionTimingFunction: 'ease-out'
+                    }}
                   />
                 </div>
                 <div className="flex items-center gap-2 animate-slide-in" style={{ animationDelay: `${(index * 200) + 300}ms` }}>
