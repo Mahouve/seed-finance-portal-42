@@ -3,7 +3,7 @@ import { GraduationCap } from "lucide-react";
 export const EducationHero = () => {
   return (
     <div className="relative pt-24 pb-12 overflow-hidden">
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
           <div className="flex-1 animate-fade-in text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary animate-float">
