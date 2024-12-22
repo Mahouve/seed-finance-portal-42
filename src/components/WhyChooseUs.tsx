@@ -28,14 +28,14 @@ export const WhyChooseUs = () => {
                 <CardTitle>{reason.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{reason.description}</p>
+                <p className="text-gray-600 hover:scale-95 transition-transform duration-300">{reason.description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-2xl font-bold mb-6 text-primary animate-float">Développez votre vision</h3>
-          <p className="text-gray-600">
+          <p className="text-gray-600 hover:scale-95 transition-transform duration-300">
             SEED Finance se positionne ainsi comme un partenaire essentiel pour vous aider à sécuriser 
             et améliorer votre avenir financier. Nous mettons à votre disposition un savoir-faire éprouvé 
             et des outils pratiques pour que chacun puisse atteindre ses objectifs financiers, tout en 
