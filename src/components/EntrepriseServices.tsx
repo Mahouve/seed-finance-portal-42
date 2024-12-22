@@ -66,7 +66,7 @@ export const EntrepriseServices = () => {
           {services.map((service, index) => (
             <Card 
               key={service.title} 
-              className="border-none shadow-lg hover:shadow-xl transition-shadow animate-fade-in"
+              className="border-none shadow-lg hover:shadow-xl transition-shadow animate-fade-in text-center"
               style={{ 
                 animationDelay: `${index * 200}ms`,
                 animationFillMode: 'forwards',
@@ -86,7 +86,7 @@ export const EntrepriseServices = () => {
                     }}
                   />
                 </div>
-                <div className="flex items-center gap-2 animate-slide-in" style={{ animationDelay: `${(index * 200) + 300}ms` }}>
+                <div className="flex items-center justify-center gap-2 animate-slide-in" style={{ animationDelay: `${(index * 200) + 300}ms` }}>
                   <service.icon className="h-6 w-6 text-primary animate-bounce" />
                   <CardTitle className="animate-fade-in" style={{ animationDelay: `${(index * 200) + 400}ms` }}>
                     {service.title}
@@ -95,7 +95,7 @@ export const EntrepriseServices = () => {
               </CardHeader>
               <CardContent>
                 <CardDescription 
-                  className="text-gray-600 animate-fade-in"
+                  className="text-gray-600 animate-fade-in px-4"
                   style={{ animationDelay: `${(index * 200) + 500}ms` }}
                 >
                   {service.description}
