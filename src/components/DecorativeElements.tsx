@@ -11,6 +11,11 @@ export const DecorativeElements = () => {
         <MessageCircle size={32} className="-rotate-12" />
       </div>
 
+      {/* Testimonials section decorative element */}
+      <div className="absolute top-[1800px] right-20 text-accent/30 animate-float" style={{ animationDelay: "1.2s" }}>
+        <Sparkles size={40} className="rotate-45" />
+      </div>
+
       {/* Top left decorative elements */}
       <div className="absolute top-20 left-10 text-primary/20 animate-float">
         <CreditCard size={48} />
