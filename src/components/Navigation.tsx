@@ -15,7 +15,7 @@ export const Navigation = () => {
   const location = useLocation();
 
   return (
-    <nav className="w-full bg-white/90 backdrop-blur-sm fixed top-0 z-40 shadow-sm">
+    <nav className="w-full bg-white/90 backdrop-blur-sm fixed top-8 z-40 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">

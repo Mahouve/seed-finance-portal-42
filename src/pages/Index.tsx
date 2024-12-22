@@ -17,7 +17,7 @@ const Index = () => {
       <DecorativeElements />
       <StockTicker />
       <Navigation />
-      <div className="pt-32">
+      <div className="pt-40">
         <div className="scroll-animation">
           <Hero />
         </div>
