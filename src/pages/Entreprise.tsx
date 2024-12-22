@@ -6,7 +6,7 @@ import { DecorativeElements } from "@/components/DecorativeElements";
 
 const Entreprise = () => {
   return (
-    <div className="min-h-screen relative overflow-hidden pt-16">
+    <div className="min-h-screen relative overflow-hidden pt-24">
       <Navigation />
       <DecorativeElements />
       
