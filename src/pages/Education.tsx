@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 
 const Education = () => {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       <Navigation />
       <EducationHero />
       <EducationServices />
