@@ -1,8 +1,16 @@
-import { CreditCard, PiggyBank, Wallet, ChartBar, LineChart, TrendingUp, DollarSign, Coins } from "lucide-react";
+import { CreditCard, PiggyBank, Wallet, ChartBar, LineChart, TrendingUp, DollarSign, Coins, Sparkles, MessageCircle } from "lucide-react";
 
 export const DecorativeElements = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {/* Section title decorative elements */}
+      <div className="absolute top-[600px] left-10 text-primary/30 animate-float" style={{ animationDelay: "0.2s" }}>
+        <Sparkles size={32} className="rotate-12" />
+      </div>
+      <div className="absolute top-[1200px] right-10 text-secondary/30 animate-float" style={{ animationDelay: "0.7s" }}>
+        <MessageCircle size={32} className="-rotate-12" />
+      </div>
+
       {/* Top left decorative elements */}
       <div className="absolute top-20 left-10 text-primary/20 animate-float">
         <CreditCard size={48} />
