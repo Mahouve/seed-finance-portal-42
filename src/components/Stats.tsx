@@ -7,6 +7,30 @@ const stats = [
   { label: "Entreprises accompagnées", value: 500, suffix: "+" },
 ];
 
+const useCountAnimation = (end: number, duration: number = 2000, isVisible: boolean) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      
+      setCount(Math.floor(progress * end));
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }, [end, duration, isVisible]);
+
+  return count;
+};
+
 export const Stats = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -36,26 +60,24 @@ export const Stats = () => {
     <section className="py-20 bg-primary text-white" id="stats-section">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat) => (
-            <Card
-              key={stat.label}
-              className="border-none bg-white/10 backdrop-blur-sm"
-            >
-              <CardContent className="text-center p-6">
-                <div className="text-4xl font-bold mb-2">
-                  {isVisible ? (
-                    <span className="animate-count-up">
-                      {stat.value}
-                      {stat.suffix}
-                    </span>
-                  ) : (
-                    "0"
-                  )}
-                </div>
-                <p className="text-lg">{stat.label}</p>
-              </CardContent>
-            </Card>
-          ))}
+          {stats.map((stat) => {
+            const animatedValue = useCountAnimation(stat.value, 2000, isVisible);
+            
+            return (
+              <Card
+                key={stat.label}
+                className="border-none bg-white/10 backdrop-blur-sm"
+              >
+                <CardContent className="text-center p-6">
+                  <div className="text-4xl font-bold mb-2">
+                    {animatedValue}
+                    {stat.suffix}
+                  </div>
+                  <p className="text-lg">{stat.label}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
