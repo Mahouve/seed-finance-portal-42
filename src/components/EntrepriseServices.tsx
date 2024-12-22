@@ -12,19 +12,19 @@ const services = [
     icon: DollarSign,
     title: "Réduction des coûts",
     description: "En tenant compte des réalités économiques et fiscales locales, SEED Finance élabore avec vous un plan financier personnalisé pour identifier et rationaliser vos postes de dépenses afin de faire plus avec moins et ainsi soutenir la croissance de votre entreprise",
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511"
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c" // Image montrant des graphiques financiers en baisse
   },
   {
     icon: TrendingUp,
     title: "Maximisation des Revenus",
     description: "Nos stratégies sur mesure vous aident à faire fructifier vos excédents et à saisir les opportunités de croissance",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f" // Image montrant une croissance positive sur un graphique
   },
   {
     icon: Wallet,
     title: "Optimisation de la trésorerie",
     description: "Nous vous aidons à maximiser la rentabilité de vos excédents financiers tout en assurant une gestion fluide de la trésorerie quotidienne.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0" // Image montrant des pièces et billets bien organisés
   }
 ];
 
