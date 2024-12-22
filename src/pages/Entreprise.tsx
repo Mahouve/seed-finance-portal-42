@@ -11,16 +11,27 @@ const Entreprise = () => {
       <DecorativeElements />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-primary/10 to-transparent relative">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 animate-fade-in">
+      <section className="py-20 relative">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-accent/95" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 animate-fade-in text-white">
             Services Financiers pour Entreprises
           </h1>
-          <p className="text-lg text-center max-w-3xl mx-auto text-gray-600 animate-fade-in">
+          <p className="text-lg text-center max-w-3xl mx-auto animate-fade-in text-white/90">
             Pour les entreprises, SEED Finance propose des services financiers, comprenant des consultations avec des experts, des ateliers de formation et des outils technologiques avancés.
           </p>
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(109.6deg,rgba(223,234,247,1)_11.2%,rgba(244,248,252,1)_91.1%)] opacity-20 pointer-events-none" />
       </section>
 
       <EntrepriseServices />
