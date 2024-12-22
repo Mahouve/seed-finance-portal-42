@@ -13,9 +13,6 @@ export const AboutHero = () => {
           </p>
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold">Notre vision</h2>
-            <Button variant="link" className="text-primary">
-              Lire plus
-            </Button>
             <p className="text-gray-600">
               SEED Finance a pour ambition d'améliorer de manière significative le niveau de vie de la population 
               camerounaise et africaine. Ceci passe par la bonne gestion des revenus disponibles ainsi que de la 
