@@ -6,19 +6,21 @@ import { StockTicker } from "@/components/StockTicker";
 import { AboutHero } from "@/components/AboutHero";
 import { AboutProducts } from "@/components/AboutProducts";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { DecorativeElements } from "@/components/DecorativeElements";
 
 const About = () => {
   return (
     <div className="min-h-screen">
+      <DecorativeElements />
       <StockTicker />
       <Navigation />
-      <main className="pt-32">
+      <div className="pt-24">
         <AboutHero />
         <Values />
         <Objectifs />
         <AboutProducts />
         <WhyChooseUs />
-      </main>
+      </div>
       <Footer />
     </div>
   );
