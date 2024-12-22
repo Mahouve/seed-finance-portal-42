@@ -16,7 +16,7 @@ const Entreprise = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1554469384-e58fac16e23a')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
