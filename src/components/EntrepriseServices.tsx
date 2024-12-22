@@ -37,7 +37,8 @@ export const EntrepriseServices = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-float');
+            const img = entry.target as HTMLImageElement;
+            img.style.opacity = '1';
             observer.unobserve(entry.target);
           }
         });
@@ -78,11 +79,10 @@ export const EntrepriseServices = () => {
                     ref={el => imagesRef.current[index] = el}
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500 opacity-0"
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                     style={{
-                      transitionProperty: 'opacity, transform',
-                      transitionDuration: '0.5s',
-                      transitionTimingFunction: 'ease-out'
+                      opacity: 0,
+                      transition: 'opacity 0.5s ease-out'
                     }}
                   />
                 </div>
