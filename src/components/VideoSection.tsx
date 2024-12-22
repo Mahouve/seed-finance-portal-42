@@ -11,9 +11,9 @@ export const VideoSection = () => {
           <div className="aspect-video w-full">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/Ys7n8L4ZhKE?controls=0"
+              src="https://www.youtube.com/embed/Ys7n8L4ZhKE?controls=0&autoplay=1&mute=1"
               title="Comprendre la finance"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen={false}
             ></iframe>
           </div>
