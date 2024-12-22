@@ -6,7 +6,7 @@ import { DecorativeElements } from "@/components/DecorativeElements";
 
 const Particulier = () => {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden pt-16">
       <Navigation />
       <DecorativeElements />
       
