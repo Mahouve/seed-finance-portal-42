@@ -18,10 +18,10 @@ export const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center text-white">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-          Construisez un avenir financier solide avec Seed Finance
+          Prenez le contrôle de vos finances dès aujourd'hui
         </h1>
         <p className="text-xl md:text-2xl mb-8 animate-fade-in [animation-delay:200ms]">
-          Des solutions sur mesure pour particuliers et entreprises
+          Solutions innovantes pour mieux gérer, épargner et investir votre argent
         </p>
         <div className="flex flex-col md:flex-row justify-center gap-4 animate-fade-in [animation-delay:400ms]">
           <Button
@@ -29,14 +29,14 @@ export const Hero = () => {
             variant="default"
             className="bg-white text-primary hover:bg-gray-100"
           >
-            Découvrez nos services
+            En savoir plus
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="border-white text-white hover:bg-white/10"
           >
-            Contactez-nous
+            S'inscrire
           </Button>
         </div>
       </div>

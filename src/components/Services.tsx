@@ -4,23 +4,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const services = [
   {
     icon: Wallet,
-    title: "Services Financiers",
-    description: "Solutions financières personnalisées pour répondre à vos besoins",
+    title: "Gestion de budget",
+    description: "Maîtrisez vos dépenses et atteignez vos objectifs financiers",
   },
   {
     icon: LineChart,
-    title: "Investissements",
-    description: "Stratégies d'investissement optimisées pour votre croissance",
+    title: "Planification financière",
+    description: "Construisez un avenir financier solide avec nos outils de planification",
   },
   {
     icon: Shield,
-    title: "Sécurité",
-    description: "Protection maximale de vos actifs et transactions",
+    title: "Investissements intelligents",
+    description: "Optimisez vos investissements avec nos solutions innovantes",
   },
   {
     icon: Users,
-    title: "Accompagnement",
-    description: "Support personnalisé pour atteindre vos objectifs",
+    title: "Prêts et épargnes",
+    description: "Des solutions adaptées à vos besoins d'épargne et de financement",
   },
 ];
 
@@ -28,7 +28,7 @@ export const Services = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Nos Services</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Nos services pour transformer vos finances</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <Card key={service.title} className="border-none shadow-lg hover:shadow-xl transition-shadow">
