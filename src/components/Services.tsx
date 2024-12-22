@@ -36,8 +36,11 @@ export const Services = () => {
                 <div className="mx-auto w-12 h-12 mb-4 text-primary group">
                   <service.icon 
                     size={48} 
-                    className="transform transition-all duration-300 group-hover:scale-110 animate-float" 
-                    style={{ animationDelay: `${index * 200}ms` }}
+                    className="transform transition-all duration-500 group-hover:scale-110 animate-float" 
+                    style={{ 
+                      animationDelay: `${index * 400}ms`,
+                      animationDuration: '4s'
+                    }}
                   />
                 </div>
                 <CardTitle>{service.title}</CardTitle>
