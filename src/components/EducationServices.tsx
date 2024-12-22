@@ -94,18 +94,18 @@ export const EducationServices = () => {
               className="animate-fade-in"
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className="flex items-center gap-4 mb-8">
+              <div className="flex flex-col items-center gap-4 mb-8 text-center">
                 <section.icon className="w-8 h-8 text-primary" />
                 <h2 className="text-2xl font-bold text-primary animate-float">{section.title}</h2>
               </div>
-              <p className="text-gray-600 mb-8 hover:scale-95 transition-transform duration-300">{section.description}</p>
+              <p className="text-gray-600 mb-8 hover:scale-95 transition-transform duration-300 text-center max-w-3xl mx-auto">{section.description}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {section.items.map((item) => (
                   <Card 
                     key={item.title}
                     className="p-6 hover:shadow-lg transition-shadow duration-300 animate-fade-in"
                   >
-                    <div className="flex flex-col items-start">
+                    <div className="flex flex-col items-center text-center">
                       <div className="p-3 bg-primary/10 rounded-lg mb-4">
                         <item.icon className="w-6 h-6 text-primary" />
                       </div>

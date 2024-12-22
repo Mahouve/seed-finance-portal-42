@@ -5,7 +5,7 @@ export const EducationHero = () => {
     <div className="relative pt-24 pb-12 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex-1 animate-fade-in">
+          <div className="flex-1 animate-fade-in text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary animate-float">
               Éducation Financière
             </h1>
