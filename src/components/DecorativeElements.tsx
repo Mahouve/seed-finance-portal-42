@@ -12,7 +12,7 @@ export const DecorativeElements = () => {
       </div>
 
       {/* Testimonials section decorative element */}
-      <div className="absolute top-[1800px] right-20 text-accent/30 animate-float" style={{ animationDelay: "1.2s" }}>
+      <div className="absolute top-[1200px] right-[-20px] text-accent/30 animate-float" style={{ animationDelay: "1.2s" }}>
         <Sparkles size={40} className="rotate-45" />
       </div>
 
