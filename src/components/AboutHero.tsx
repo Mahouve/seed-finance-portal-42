@@ -25,7 +25,7 @@ export const AboutHero = () => {
         {/* Content */}
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-6 text-white">SEED Finance</h1>
+            <h1 className="text-4xl font-bold mb-6 text-white animate-float">SEED Finance</h1>
             <p className="text-lg mb-8 text-gray-100 leading-relaxed">
               Seed Finance est dédié à fournir des solutions de conseil financier adaptées aux réalités africaines. 
               Nous offrons des services personnalisés en gestion de patrimoine, microfinance, et investissements, 
@@ -39,7 +39,7 @@ export const AboutHero = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-semibold text-primary mb-6">Notre vision</h2>
+            <h2 className="text-3xl font-semibold text-primary mb-6 animate-float">Notre vision</h2>
             <p className="text-gray-700 leading-relaxed">
               SEED Finance a pour ambition d'améliorer de manière significative le niveau de vie de la population 
               camerounaise et africaine. Ceci passe par la bonne gestion des revenus disponibles ainsi que de la 
