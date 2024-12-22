@@ -48,29 +48,31 @@ const Index = () => {
       <DecorativeElements />
       <StockTicker />
       <Navigation />
-      <div className="scroll-animation">
-        <Hero />
-      </div>
-      <div className="scroll-animation [animation-delay:200ms]">
-        <Services />
-      </div>
-      <div className="scroll-animation [animation-delay:400ms]">
-        <Features />
-      </div>
-      <div className="scroll-animation [animation-delay:600ms]">
-        <Values />
-      </div>
-      <div className="scroll-animation [animation-delay:800ms]">
-        <Stats />
-      </div>
-      <div className="scroll-animation [animation-delay:1000ms]">
-        <Testimonials />
-      </div>
-      <div className="scroll-animation [animation-delay:1200ms]">
-        <VideoSection />
-      </div>
-      <div className="scroll-animation [animation-delay:1400ms]">
-        <Contact />
+      <div className="pt-16">
+        <div className="scroll-animation">
+          <Hero />
+        </div>
+        <div className="scroll-animation [animation-delay:200ms]">
+          <Services />
+        </div>
+        <div className="scroll-animation [animation-delay:400ms]">
+          <Features />
+        </div>
+        <div className="scroll-animation [animation-delay:600ms]">
+          <Values />
+        </div>
+        <div className="scroll-animation [animation-delay:800ms]">
+          <Stats />
+        </div>
+        <div className="scroll-animation [animation-delay:1000ms]">
+          <Testimonials />
+        </div>
+        <div className="scroll-animation [animation-delay:1200ms]">
+          <VideoSection />
+        </div>
+        <div className="scroll-animation [animation-delay:1400ms]">
+          <Contact />
+        </div>
       </div>
       <Footer />
     </div>

@@ -15,7 +15,7 @@ export const Navigation = () => {
   const location = useLocation();
 
   return (
-    <nav className="w-full bg-white/90 backdrop-blur-sm z-40 fixed top-6">
+    <nav className="w-full bg-white/90 backdrop-blur-sm fixed top-0 z-40 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
@@ -68,7 +68,7 @@ export const Navigation = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <Link to="#" className="nav-link">
+            <Link to="/about" className="nav-link">
               À propos
             </Link>
             <Link to="/education" className="nav-link">
@@ -92,7 +92,7 @@ export const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 animate-fade-in">
+          <div className="md:hidden py-4 bg-white">
             <div className="flex flex-col space-y-4">
               <Link to="/markets" className="nav-link">
                 Bourses et cotations
@@ -106,7 +106,7 @@ export const Navigation = () => {
                   Particulier
                 </Link>
               </div>
-              <Link to="#" className="nav-link">
+              <Link to="/about" className="nav-link">
                 À propos
               </Link>
               <Link to="/education" className="nav-link">
