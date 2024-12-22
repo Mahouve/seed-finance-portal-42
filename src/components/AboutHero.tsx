@@ -6,7 +6,7 @@ export const AboutHero = () => {
 
   return (
     <div>
-      <section className="relative min-h-[60vh] flex items-center w-screen -ml-[2rem] overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center w-screen -ml-[2rem]">
         {/* Background Image with Parallax */}
         <div
           className="absolute inset-0 z-0"
