@@ -42,8 +42,10 @@ export const CurrencyCard = ({ name, value, change, historicalData = [] }: Curre
           value * 1.01,
           value,
         ],
-        borderColor: "rgb(75, 192, 192)",
-        tension: 0.1,
+        borderColor: "rgb(59, 130, 246)", // Blue-500
+        backgroundColor: "rgba(59, 130, 246, 0.1)",
+        tension: 0.4,
+        fill: true,
       },
     ],
   };
@@ -54,28 +56,63 @@ export const CurrencyCard = ({ name, value, change, historicalData = [] }: Curre
       legend: {
         display: false,
       },
+      tooltip: {
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        titleColor: "#1F2937",
+        bodyColor: "#1F2937",
+        borderColor: "#E5E7EB",
+        borderWidth: 1,
+        padding: 12,
+        cornerRadius: 8,
+      },
     },
     scales: {
       y: {
         beginAtZero: false,
+        grid: {
+          color: "rgba(0, 0, 0, 0.05)",
+        },
+        ticks: {
+          font: {
+            family: "'Poppins', sans-serif",
+          },
+        },
       },
+      x: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          font: {
+            family: "'Poppins', sans-serif",
+          },
+        },
+      },
+    },
+    interaction: {
+      intersect: false,
+      mode: "index",
     },
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="text-lg">{name}</CardTitle>
+    <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border border-border/50">
+      <CardHeader className="bg-card">
+        <CardTitle className="text-lg font-medium">{name}</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-2">
-          <p className="text-2xl font-bold">{value.toFixed(2)}</p>
-          <p className={`text-sm font-medium ${
-            change >= 0 ? "text-green-600" : "text-red-600"
-          }`}>
-            {change >= 0 ? "+" : ""}{change.toFixed(2)}%
-          </p>
-          <div className="h-[200px]">
+      <CardContent className="pt-6">
+        <div className="space-y-4">
+          <div className="flex items-end justify-between">
+            <p className="text-3xl font-bold text-foreground">{value.toFixed(2)}</p>
+            <p className={`text-sm font-medium px-2 py-1 rounded-full ${
+              change >= 0 
+                ? "text-green-600 bg-green-50" 
+                : "text-red-600 bg-red-50"
+            }`}>
+              {change >= 0 ? "+" : ""}{change.toFixed(2)}%
+            </p>
+          </div>
+          <div className="h-[200px] pt-4">
             <Line data={data} options={options} />
           </div>
         </div>

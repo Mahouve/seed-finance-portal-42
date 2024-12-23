@@ -7,13 +7,24 @@ export const FinanceNews = () => {
   const { data: news, isLoading } = useFinanceNews();
 
   if (isLoading) {
-    return <div className="text-center">Chargement des actualités...</div>;
+    return (
+      <Card className="h-full">
+        <CardHeader>
+          <CardTitle>Actualités Financières</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-center h-[500px]">
+            <div className="animate-pulse text-muted">Chargement des actualités...</div>
+          </div>
+        </CardContent>
+      </Card>
+    );
   }
 
   return (
-    <Card>
+    <Card className="h-full">
       <CardHeader>
-        <CardTitle>Actualités Financières</CardTitle>
+        <CardTitle className="text-xl font-semibold">Actualités Financières</CardTitle>
       </CardHeader>
       <CardContent>
         <ScrollArea className="h-[600px] pr-4">

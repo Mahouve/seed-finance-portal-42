@@ -44,7 +44,11 @@ export const CurrencyTabs = () => {
   });
 
   if (isLoading) {
-    return <div className="text-center py-8">Chargement des taux de change...</div>;
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="animate-pulse text-muted">Chargement des taux de change...</div>
+      </div>
+    );
   }
 
   const calculateChange = (current: number, previous: number) => {
@@ -53,7 +57,7 @@ export const CurrencyTabs = () => {
 
   const renderCurrencyCards = (currencies: CurrencyMap) => {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {Object.entries(currencies).map(([key, { code }]) => (
           <CurrencyCard
             key={code}
@@ -68,9 +72,19 @@ export const CurrencyTabs = () => {
 
   return (
     <Tabs defaultValue="central" className="w-full" onValueChange={setActiveTab}>
-      <TabsList className="grid w-full grid-cols-2 mb-8">
-        <TabsTrigger value="central">Afrique Centrale</TabsTrigger>
-        <TabsTrigger value="other">Autres Pays Africains</TabsTrigger>
+      <TabsList className="w-full grid grid-cols-2 mb-8 p-1 bg-muted/20 rounded-full">
+        <TabsTrigger 
+          value="central" 
+          className="rounded-full px-8 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
+        >
+          Afrique Centrale
+        </TabsTrigger>
+        <TabsTrigger 
+          value="other"
+          className="rounded-full px-8 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
+        >
+          Autres Pays Africains
+        </TabsTrigger>
       </TabsList>
       <TabsContent value="central" className="mt-4">
         {renderCurrencyCards(centralAfricanCurrencies)}
