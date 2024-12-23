@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calculator, PiggyBank, TrendingUp, Users } from "lucide-react";
 import { CreditSimulator } from "./CreditSimulator";
+import { useState } from "react";
 
 export const Services = () => {
+  const [showSimulator, setShowSimulator] = useState(false);
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -61,10 +64,19 @@ export const Services = () => {
                 Calculez rapidement vos mensualités et obtenez une estimation personnalisée de votre crédit.
               </p>
             </div>
-            <CreditSimulator />
+            <Button 
+              variant="default"
+              className="flex items-center gap-2"
+              onClick={() => setShowSimulator(true)}
+            >
+              <Calculator className="h-4 w-4" />
+              Simulateur de crédit
+            </Button>
           </div>
         </div>
       </div>
+
+      {showSimulator && <CreditSimulator />}
     </section>
   );
 };
