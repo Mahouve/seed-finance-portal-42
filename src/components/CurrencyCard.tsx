@@ -91,7 +91,7 @@ export const CurrencyCard = ({ name, value, change, historicalData = [] }: Curre
     },
     interaction: {
       intersect: false,
-      mode: "index",
+      mode: "nearest" as const,
     },
   };
 
