@@ -27,14 +27,14 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="default"
-            className="bg-white text-primary hover:bg-gray-100"
+            className="bg-white text-primary hover:bg-gray-100 font-semibold text-lg px-8 py-6"
           >
             En savoir plus
           </Button>
           <Button
             size="lg"
             variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-primary transition-colors"
+            className="border-2 border-white text-white hover:bg-white hover:text-primary transition-colors font-semibold text-lg px-8 py-6"
           >
             S'inscrire
           </Button>
