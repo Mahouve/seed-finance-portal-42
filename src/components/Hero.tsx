@@ -42,7 +42,7 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="default"
-            className="bg-white hover:bg-gray-50 text-primary text-xl font-semibold px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="bg-white text-primary hover:bg-gray-50 text-base font-medium px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
             onClick={() => setDialogOpen(true)}
           >
             En savoir plus
@@ -50,12 +50,18 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="outline"
-            className="bg-primary/20 backdrop-blur-sm border-2 border-white text-white hover:bg-primary/30 text-xl font-semibold px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="bg-primary/20 backdrop-blur-sm border-2 border-white text-white hover:bg-primary/30 text-base font-medium px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
             onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSeJthD93yMjD6BCGl2QCh3_OJJP-vulvYfy2aESzo0L-qfWcA/viewform', '_blank')}
           >
             S'inscrire
           </Button>
-          <CreditSimulator />
+          <Button
+            size="lg"
+            variant="outline"
+            className="bg-primary/20 backdrop-blur-sm border-2 border-white text-white hover:bg-primary/30 text-base font-medium px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+          >
+            <CreditSimulator />
+          </Button>
         </div>
       </div>
 

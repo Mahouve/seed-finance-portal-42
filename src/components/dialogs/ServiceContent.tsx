@@ -96,7 +96,7 @@ export const ServiceContent = ({
         
         <Button 
           variant="default"
-          className="w-full flex items-center gap-2 text-sm"
+          className="w-full flex items-center gap-2 text-sm font-medium rounded-lg shadow-sm hover:shadow-md bg-primary text-white hover:bg-primary/90 transition-all"
           onClick={onSimulatorClick}
         >
           <Calculator className="h-4 w-4" />
@@ -126,7 +126,12 @@ export const ServiceContent = ({
               placeholder="Vos questions..."
               className="flex-1 text-sm"
             />
-            <Button type="submit" disabled={isLoading} size="sm">
+            <Button 
+              type="submit" 
+              disabled={isLoading} 
+              size="sm"
+              className="bg-primary text-white hover:bg-primary/90 shadow-sm hover:shadow-md transition-all"
+            >
               <Send className="h-4 w-4" />
             </Button>
           </div>
