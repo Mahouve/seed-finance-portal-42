@@ -19,50 +19,52 @@ import {
   Building2,
   GraduationCap,
   Send,
+  Calculator,
 } from "lucide-react";
+import { CreditSimulator } from "./CreditSimulator";
 
 const services = [
   {
     icon: Wallet,
-    title: "Gestion Financière",
-    description: "Solutions personnalisées pour gérer vos finances",
-    query: "Expliquez-moi les services de gestion financière de SEED Finance"
+    title: "Gestion",
+    description: "Solutions personnalisées",
+    query: "Détaillez les services de gestion financière"
   },
   {
     icon: LineChart,
-    title: "Investissements",
-    description: "Stratégies d'investissement adaptées",
-    query: "Quels sont les services d'investissement proposés par SEED Finance?"
+    title: "Investir",
+    description: "Stratégies adaptées",
+    query: "Expliquez les stratégies d'investissement"
   },
   {
     icon: Shield,
-    title: "Protection du Patrimoine",
-    description: "Sécurisez votre avenir financier",
-    query: "Comment SEED Finance aide à protéger le patrimoine?"
+    title: "Protection",
+    description: "Sécurité patrimoniale",
+    query: "Comment protéger son patrimoine?"
   },
   {
     icon: Users,
-    title: "Services aux Particuliers",
-    description: "Solutions pour les besoins individuels",
-    query: "Détaillez les services pour particuliers de SEED Finance"
+    title: "Particuliers",
+    description: "Services individuels",
+    query: "Services pour particuliers"
   },
   {
     icon: BookOpen,
     title: "Formation",
-    description: "Programmes de formation financière",
-    query: "Quels sont les services de formation proposés par SEED Finance?"
+    description: "Programmes financiers",
+    query: "Programmes de formation disponibles"
   },
   {
     icon: Building2,
-    title: "Services aux Entreprises",
-    description: "Solutions pour les professionnels",
-    query: "Expliquez les services pour entreprises de SEED Finance"
+    title: "Entreprises",
+    description: "Solutions pro",
+    query: "Services aux entreprises"
   },
   {
     icon: GraduationCap,
-    title: "Éducation Financière",
-    description: "Apprentissage et développement",
-    query: "Comment SEED Finance contribue à l'éducation financière?"
+    title: "Éducation",
+    description: "Apprentissage",
+    query: "Programme d'éducation financière"
   }
 ];
 
@@ -75,6 +77,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
   const [messages, setMessages] = useState<Array<{ role: string; content: string }>>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userMessage, setUserMessage] = useState("");
+  const [showSimulator, setShowSimulator] = useState(false);
 
   const queryAssistant = async (query: string) => {
     setIsLoading(true);
@@ -125,37 +128,46 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl h-[80vh] overflow-hidden">
         <DialogHeader>
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex items-center gap-4 mb-2">
             <img 
               src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
               alt="SEED Finance Logo" 
-              className="h-12 w-auto"
+              className="h-8 w-auto"
             />
             <div>
-              <DialogTitle className="text-2xl font-bold">Services SEED Finance</DialogTitle>
-              <DialogDescription>
-                Découvrez nos services en détail. Cliquez sur un service pour en savoir plus.
+              <DialogTitle className="text-xl font-semibold">Services SEED Finance</DialogTitle>
+              <DialogDescription className="text-sm">
+                Cliquez pour plus d'infos
               </DialogDescription>
             </div>
           </div>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
           <div className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2">
               {services.map((service) => (
                 <Button
                   key={service.title}
                   variant="outline"
-                  className="h-auto p-4 flex flex-col items-center gap-3 text-center hover:bg-accent/20 transition-all duration-300"
+                  className="h-auto py-3 flex flex-col items-center gap-2 text-center hover:bg-accent/20 transition-all duration-300"
                   onClick={() => queryAssistant(service.query)}
                 >
-                  <service.icon className="h-8 w-8 text-primary" />
-                  <span className="font-medium">{service.title}</span>
-                  <span className="text-sm text-muted-foreground">{service.description}</span>
+                  <service.icon className="h-5 w-5 text-primary" />
+                  <span className="font-medium text-sm">{service.title}</span>
+                  <span className="text-xs text-muted-foreground">{service.description}</span>
                 </Button>
               ))}
             </div>
+            
+            <Button 
+              variant="default"
+              className="w-full flex items-center gap-2"
+              onClick={() => setShowSimulator(true)}
+            >
+              <Calculator className="h-4 w-4" />
+              Simulateur de coût
+            </Button>
           </div>
 
           <div className="flex flex-col h-full bg-accent/10 rounded-lg p-4">
@@ -177,7 +189,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
                 ))}
                 {isLoading && (
                   <div className="p-3 rounded-lg bg-background border border-border animate-pulse">
-                    Analyse en cours...
+                    Analyse...
                   </div>
                 )}
               </div>
@@ -188,7 +200,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
                 <Input
                   value={userMessage}
                   onChange={(e) => setUserMessage(e.target.value)}
-                  placeholder="Posez vos questions sur nos services..."
+                  placeholder="Vos questions..."
                   className="flex-1"
                 />
                 <Button type="submit" disabled={isLoading}>
@@ -199,6 +211,10 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
           </div>
         </div>
       </DialogContent>
+
+      {showSimulator && (
+        <CreditSimulator />
+      )}
     </Dialog>
   );
 };
