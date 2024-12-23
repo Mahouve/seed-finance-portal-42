@@ -4,6 +4,7 @@ import { ParticulierServices } from "@/components/ParticulierServices";
 import { Testimonials } from "@/components/Testimonials";
 import { DecorativeElements } from "@/components/DecorativeElements";
 import { StockTicker } from "@/components/StockTicker";
+import { CreditSimulator } from "@/components/CreditSimulator";
 
 const Particulier = () => {
   return (
@@ -38,6 +39,24 @@ const Particulier = () => {
 
         <ParticulierServices />
         <Testimonials />
+
+        {/* Simulateur de Crédit Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-center mb-8">
+                Simulateur de Crédit
+              </h2>
+              <p className="text-lg text-center text-gray-600 mb-12">
+                Calculez rapidement vos mensualités et obtenez une estimation personnalisée de votre crédit
+              </p>
+              <div className="bg-white rounded-2xl shadow-lg p-8">
+                <CreditSimulator />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Footer />
       </div>
     </div>
