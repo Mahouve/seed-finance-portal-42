@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/components/ui/use-toast";
 import ReactMarkdown from 'react-markdown';
+import { Components } from 'react-markdown';
 
 interface Message {
   role: "assistant" | "user";
@@ -93,6 +94,25 @@ export const AIAssistantDrawer = () => {
     setFontSize(sizes[nextIndex]);
   };
 
+  const markdownComponents: Components = {
+    p: ({children, ...props}) => <p className="mb-2" {...props}>{children}</p>,
+    a: ({children, ...props}) => <a className="text-blue-500 hover:underline" {...props}>{children}</a>,
+    ul: ({children, ...props}) => <ul className="list-disc ml-4 mb-2" {...props}>{children}</ul>,
+    ol: ({children, ...props}) => <ol className="list-decimal ml-4 mb-2" {...props}>{children}</ol>,
+    code: ({children, className, ...props}) => {
+      const match = /language-(\w+)/.exec(className || '');
+      return match ? (
+        <code className="block bg-gray-100 p-2 rounded my-2" {...props}>
+          {children}
+        </code>
+      ) : (
+        <code className="bg-gray-100 px-1 rounded" {...props}>
+          {children}
+        </code>
+      );
+    }
+  };
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -158,18 +178,7 @@ export const AIAssistantDrawer = () => {
                         : "bg-primary text-white"
                     }`}
                   >
-                    <ReactMarkdown
-                      components={{
-                        p: ({node, ...props}) => <p className="mb-2" {...props} />,
-                        a: ({node, ...props}) => <a className="text-blue-500 hover:underline" {...props} />,
-                        ul: ({node, ...props}) => <ul className="list-disc ml-4 mb-2" {...props} />,
-                        ol: ({node, ...props}) => <ol className="list-decimal ml-4 mb-2" {...props} />,
-                        code: ({node, inline, ...props}) => 
-                          inline ? 
-                            <code className="bg-gray-100 px-1 rounded" {...props} /> :
-                            <code className="block bg-gray-100 p-2 rounded my-2" {...props} />
-                      }}
-                    >
+                    <ReactMarkdown components={markdownComponents}>
                       {message.content}
                     </ReactMarkdown>
                   </div>
