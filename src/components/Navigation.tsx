@@ -17,12 +17,12 @@ export const Navigation = () => {
   return (
     <nav className="w-full bg-white/90 backdrop-blur-sm fixed top-8 z-40 shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
               alt="Seed Finance Logo" 
-              className="h-12"
+              className="h-14"
             />
           </Link>
 
@@ -34,17 +34,17 @@ export const Navigation = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="h-10 px-4 text-base font-medium">
                     Nos services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-4 w-[400px] md:w-[500px]">
+                    <div className="nav-dropdown w-[400px] md:w-[500px]">
                       <Link 
                         to="/entreprise" 
-                        className="group grid grid-cols-4 items-center gap-4 p-3 hover:bg-slate-100 rounded-md"
+                        className="nav-dropdown-item"
                       >
                         <Briefcase className="h-5 w-5" />
-                        <div className="col-span-3">
+                        <div>
                           <div className="font-medium">Entreprise</div>
                           <p className="text-sm text-muted-foreground">
                             Services financiers pour les entreprises
@@ -53,10 +53,10 @@ export const Navigation = () => {
                       </Link>
                       <Link 
                         to="/particulier" 
-                        className="group grid grid-cols-4 items-center gap-4 p-3 hover:bg-slate-100 rounded-md"
+                        className="nav-dropdown-item mt-2"
                       >
                         <Users className="h-5 w-5" />
-                        <div className="col-span-3">
+                        <div>
                           <div className="font-medium">Particulier</div>
                           <p className="text-sm text-muted-foreground">
                             Services financiers pour les particuliers
@@ -78,13 +78,18 @@ export const Navigation = () => {
               Support Client
             </Link>
             <Link to="/book-dedication">
-              <Button variant="default">Dédicace du Livre</Button>
+              <Button 
+                variant="default" 
+                className="h-11 px-6 text-base font-medium shadow-md hover:shadow-lg transition-all"
+              >
+                Dédicace du Livre
+              </Button>
             </Link>
           </div>
 
           {/* Mobile Navigation Button */}
           <button
-            className="md:hidden"
+            className="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -94,18 +99,20 @@ export const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 bg-white">
+          <div className="md:hidden py-4 bg-white border-t">
             <div className="flex flex-col space-y-4">
               <Link to="/markets" className="nav-link">
                 Bourses et cotations
               </Link>
               <div className="flex flex-col space-y-2 px-4">
-                <div className="font-medium">Nos Services</div>
-                <Link to="/entreprise" className="text-sm text-muted-foreground pl-4">
-                  Entreprise
+                <div className="font-medium text-gray-900">Nos Services</div>
+                <Link to="/entreprise" className="nav-dropdown-item">
+                  <Briefcase className="h-5 w-5" />
+                  <span>Entreprise</span>
                 </Link>
-                <Link to="/particulier" className="text-sm text-muted-foreground pl-4">
-                  Particulier
+                <Link to="/particulier" className="nav-dropdown-item">
+                  <Users className="h-5 w-5" />
+                  <span>Particulier</span>
                 </Link>
               </div>
               <Link to="/about" className="nav-link">
@@ -117,11 +124,16 @@ export const Navigation = () => {
               <Link to="#" className="nav-link">
                 Support Client
               </Link>
-              <Link to="/book-dedication">
-                <Button variant="default" className="w-full">
-                  Dédicace du Livre
-                </Button>
-              </Link>
+              <div className="px-4">
+                <Link to="/book-dedication">
+                  <Button 
+                    variant="default" 
+                    className="w-full h-11 text-base font-medium shadow-md"
+                  >
+                    Dédicace du Livre
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         )}

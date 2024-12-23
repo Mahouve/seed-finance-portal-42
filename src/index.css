@@ -12,19 +12,19 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 207 63% 41%;
+    --primary: 262 60% 75%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 207 65% 33%;
+    --secondary: 262 55% 54%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 207 57% 48%;
+    --accent: 262 80% 85%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 207 63% 41%;
+    --ring: 262 60% 75%;
     --radius: 0.5rem;
   }
 
@@ -36,15 +36,23 @@
 
 @layer components {
   .nav-link {
-    @apply relative px-4 py-2 text-gray-700 hover:text-primary transition-colors;
+    @apply relative px-4 py-2.5 text-base font-medium text-gray-700 transition-all duration-300 hover:text-primary;
   }
 
   .nav-link::after {
-    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply content-[''] absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300;
   }
 
   .nav-link:hover::after {
     @apply w-full;
+  }
+
+  .nav-dropdown {
+    @apply bg-white/95 backdrop-blur-sm border border-gray-100 shadow-lg rounded-lg p-4;
+  }
+
+  .nav-dropdown-item {
+    @apply flex items-center gap-3 p-3 rounded-md transition-colors hover:bg-primary/10 text-gray-700 hover:text-primary;
   }
 
   .hero-gradient {

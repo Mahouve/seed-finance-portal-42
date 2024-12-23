@@ -19,13 +19,16 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#2674ac",
-        secondary: "#1e5d8a",
-        accent: "#3488c4",
+        primary: "#9b87f5",
+        secondary: "#7E69AB",
+        accent: "#D6BCFA",
         background: "#FFFFFF",
         foreground: "#1F2937",
         muted: "#9CA3AF",
         border: "#E5E7EB",
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
