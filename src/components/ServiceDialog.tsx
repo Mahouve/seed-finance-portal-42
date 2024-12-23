@@ -127,7 +127,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl h-[80vh] overflow-hidden">
+      <DialogContent className="max-w-4xl h-[90vh] overflow-hidden">
         <DialogHeader>
           <div className="flex items-center gap-4 mb-2">
             <img 
@@ -144,7 +144,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
           </div>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[calc(90vh-100px)]">
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-2">
               {services.map((service) => (
@@ -169,8 +169,8 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
           </div>
 
           <div className="flex flex-col h-full bg-accent/10 rounded-lg p-4">
-            <ScrollArea className="flex-1 pr-4 max-h-[calc(100vh-280px)] overflow-y-auto">
-              <div className="space-y-4 pr-2">
+            <ScrollArea className="flex-1 pr-4">
+              <div className="space-y-4 pr-2 max-h-[calc(90vh-200px)] overflow-y-auto">
                 {messages.map((message, index) => (
                   <ChatMessage key={index} {...message} />
                 ))}

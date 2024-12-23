@@ -138,7 +138,7 @@ export const CreditSimulator = () => {
           Simulateur de crédit
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl h-[80vh]">
+      <DialogContent className="max-w-4xl h-[90vh]">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-2xl font-bold">
             <Calculator className="w-6 h-6 text-primary" />
@@ -146,8 +146,8 @@ export const CreditSimulator = () => {
           </DialogTitle>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[calc(90vh-100px)]">
+          <div className="space-y-6 overflow-y-auto pr-4">
             <div className="space-y-2">
               <Label htmlFor="amount">Montant du prêt (FCFA)</Label>
               <Input
@@ -215,8 +215,8 @@ export const CreditSimulator = () => {
           </div>
 
           <div className="flex flex-col h-full">
-            <ScrollArea className="flex-1 pr-4">
-              <div className="space-y-4">
+            <ScrollArea className="flex-1">
+              <div className="space-y-4 pr-2">
                 {messages.map((message, index) => (
                   <div
                     key={index}
