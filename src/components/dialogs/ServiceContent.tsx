@@ -8,12 +8,13 @@ import {
   Building2,
   GraduationCap,
   Calculator,
+  Send,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { ScrollArea } from "../ui/scroll-area";
 import { Input } from "../ui/input";
-import { Send } from "lucide-react";
 import { ChatMessage } from "../ChatMessage";
+import { Separator } from "../ui/separator";
 
 const services = [
   {
@@ -80,61 +81,65 @@ export const ServiceContent = ({
   onSimulatorClick
 }: ServiceContentProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[calc(90vh-100px)]">
-      <div className="space-y-3">
-        <div className="grid grid-cols-2 gap-2">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              onClick={() => onServiceClick(service.query)}
-            />
-          ))}
-        </div>
-        
-        <Button 
-          variant="default"
-          className="w-full flex items-center gap-2 text-sm font-medium rounded-lg shadow-sm hover:shadow-md bg-primary text-white hover:bg-primary/90 transition-all"
-          onClick={onSimulatorClick}
-        >
-          <Calculator className="h-4 w-4" />
-          Simulateur de crédit
-        </Button>
-      </div>
-
-      <div className="flex flex-col h-full bg-accent/10 rounded-lg p-3">
-        <ScrollArea className="flex-1 pr-3">
+    <div className="flex flex-col h-[calc(90vh-100px)]">
+      <ScrollArea className="flex-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
           <div className="space-y-3">
-            {messages.map((message, index) => (
-              <ChatMessage key={index} {...message} />
-            ))}
-            {isLoading && (
-              <div className="p-2 rounded-lg bg-background border border-border animate-pulse text-sm">
-                Analyse...
-              </div>
-            )}
-          </div>
-        </ScrollArea>
-
-        <form onSubmit={onSendMessage} className="mt-3">
-          <div className="flex gap-2">
-            <Input
-              value={userMessage}
-              onChange={(e) => onMessageChange(e.target.value)}
-              placeholder="Vos questions..."
-              className="flex-1 text-sm"
-            />
+            <div className="grid grid-cols-2 gap-2">
+              {services.map((service) => (
+                <ServiceCard
+                  key={service.title}
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  onClick={() => onServiceClick(service.query)}
+                />
+              ))}
+            </div>
+            
             <Button 
-              type="submit" 
-              disabled={isLoading} 
-              size="sm"
-              className="bg-primary text-white hover:bg-primary/90 shadow-sm hover:shadow-md transition-all"
+              variant="default"
+              className="w-full flex items-center gap-2 text-sm font-medium rounded-lg shadow-sm hover:shadow-md bg-primary text-white hover:bg-primary/90 transition-all"
+              onClick={onSimulatorClick}
             >
-              <Send className="h-4 w-4" />
+              <Calculator className="h-4 w-4" />
+              Simulateur de crédit
             </Button>
           </div>
+
+          <div className="bg-accent/10 rounded-lg p-3">
+            <ScrollArea className="h-[400px] pr-3">
+              <div className="space-y-3">
+                {messages.map((message, index) => (
+                  <ChatMessage key={index} {...message} />
+                ))}
+                {isLoading && (
+                  <div className="p-2 rounded-lg bg-background border border-border animate-pulse text-sm">
+                    Analyse...
+                  </div>
+                )}
+              </div>
+            </ScrollArea>
+          </div>
+        </div>
+      </ScrollArea>
+
+      <div className="p-4 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <form onSubmit={onSendMessage} className="flex gap-2">
+          <Input
+            value={userMessage}
+            onChange={(e) => onMessageChange(e.target.value)}
+            placeholder="Posez vos questions..."
+            className="flex-1"
+          />
+          <Button 
+            type="submit" 
+            size="icon"
+            disabled={isLoading}
+            className="bg-primary text-white hover:bg-primary/90"
+          >
+            <Send className="h-4 w-4" />
+          </Button>
         </form>
       </div>
     </div>
