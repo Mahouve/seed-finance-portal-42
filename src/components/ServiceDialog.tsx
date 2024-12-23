@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,13 +13,22 @@ import { CreditSimulator } from "./CreditSimulator";
 interface ServiceDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  initialQuery?: string;
 }
 
-export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
+export const ServiceDialog = ({ open, onOpenChange, initialQuery }: ServiceDialogProps) => {
   const [messages, setMessages] = useState<Array<{ role: string; content: string }>>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userMessage, setUserMessage] = useState("");
   const [showSimulator, setShowSimulator] = useState(false);
+
+  useEffect(() => {
+    if (open && initialQuery) {
+      handleServiceClick(initialQuery);
+    } else if (!open) {
+      setMessages([]);
+    }
+  }, [open, initialQuery]);
 
   const handleServiceClick = async (query: string) => {
     setIsLoading(true);
@@ -69,7 +78,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
               <div>
                 <DialogTitle className="text-xl font-semibold">Services SEED Finance</DialogTitle>
                 <DialogDescription className="text-sm">
-                  Cliquez pour plus d'infos
+                  Comment pouvons-nous vous aider ?
                 </DialogDescription>
               </div>
             </div>
