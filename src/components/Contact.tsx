@@ -26,20 +26,22 @@ export const Contact = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Mail className="text-primary" />
-                <span>contact@example.com</span>
+                <a href="https://www.seed-finance.org" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  www.seed-finance.org
+                </a>
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="text-primary" />
-                <span>+33 1 23 45 67 89</span>
+                <span>+237 6 71 25 97 25</span>
               </div>
               <div className="flex items-center gap-4">
                 <MapPin className="text-primary" />
-                <span>123 Rue Example, 75000 Paris</span>
+                <span>Bonanjo, Douala, Cameroun</span>
               </div>
             </div>
             <div className="aspect-video w-full">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.95410694685!2d2.2769955!3d48.8589507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sfr!2sfr!4v1635959997142!5m2!1sfr!2sfr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15919.060149954987!2d9.68862185!3d4.0412835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061128914e2b421%3A0x99345dd3fc87acb3!2sBonanjo%2C%20Douala%2C%20Cameroun!5e0!3m2!1sfr!2sfr!4v1635959997142!5m2!1sfr!2sfr"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

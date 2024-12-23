@@ -19,10 +19,10 @@ export const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact</h3>
             <address className="text-gray-300 not-italic">
-              <p>123 Rue de la Finance</p>
-              <p>75001 Paris, France</p>
-              <p>+33 1 23 45 67 89</p>
-              <p>contact@seedfinance.fr</p>
+              <p>Bonanjo</p>
+              <p>Douala, Cameroun</p>
+              <p>+237 6 71 25 97 25</p>
+              <p>www.seed-finance.org</p>
             </address>
           </div>
 
