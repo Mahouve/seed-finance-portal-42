@@ -77,7 +77,9 @@ export const Navigation = () => {
             <Link to="#" className="nav-link">
               Support Client
             </Link>
-            <Button variant="default">Dédicace du Livre</Button>
+            <Link to="/book-dedication">
+              <Button variant="default">Dédicace du Livre</Button>
+            </Link>
           </div>
 
           {/* Mobile Navigation Button */}
@@ -115,9 +117,11 @@ export const Navigation = () => {
               <Link to="#" className="nav-link">
                 Support Client
               </Link>
-              <Button variant="default" className="w-full">
-                Dédicace du Livre
-              </Button>
+              <Link to="/book-dedication">
+                <Button variant="default" className="w-full">
+                  Dédicace du Livre
+                </Button>
+              </Link>
             </div>
           </div>
         )}
