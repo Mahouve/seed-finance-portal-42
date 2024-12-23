@@ -9,6 +9,7 @@ import Entreprise from "./pages/Entreprise";
 import Particulier from "./pages/Particulier";
 import Markets from "./pages/Markets";
 import About from "./pages/About";
+import BookDedication from "./pages/BookDedication";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/particulier" element={<Particulier />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/about" element={<About />} />
+          <Route path="/book-dedication" element={<BookDedication />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
