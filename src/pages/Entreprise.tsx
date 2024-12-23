@@ -4,6 +4,7 @@ import { EntrepriseServices } from "@/components/EntrepriseServices";
 import { Testimonials } from "@/components/Testimonials";
 import { DecorativeElements } from "@/components/DecorativeElements";
 import { StockTicker } from "@/components/StockTicker";
+import { AIAssistantDrawer } from "@/components/AIAssistantDrawer";
 
 const Entreprise = () => {
   return (
@@ -40,6 +41,7 @@ const Entreprise = () => {
         <Testimonials />
         <Footer />
       </div>
+      <AIAssistantDrawer />
     </div>
   );
 };
