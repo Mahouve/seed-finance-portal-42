@@ -9,27 +9,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Calculator,
-  PiggyBank,
-  Calendar,
-  Percent,
-  MessageSquare,
-} from "lucide-react";
+import { Calculator, MessageSquare } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
-interface SimulationResult {
-  monthlyPayment: number;
-  totalInterest: number;
-  totalAmount: number;
-  schedule: Array<{
-    month: number;
-    payment: number;
-    principal: number;
-    interest: number;
-    remainingBalance: number;
-  }>;
-}
+import { ChatMessage } from "./ChatMessage";
+import { queryOpenAI } from "@/utils/openaiUtils";
+import { calculateLoan, formatLoanQuery, type SimulationResult } from "@/utils/creditCalculator";
+import { LoanResults } from "./LoanResults";
 
 export const CreditSimulator = () => {
   const [amount, setAmount] = useState<string>("");
@@ -40,81 +25,24 @@ export const CreditSimulator = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [userMessage, setUserMessage] = useState("");
 
-  const calculateLoan = () => {
-    const principal = parseFloat(amount);
-    const annualRate = parseFloat(rate) / 100;
-    const months = parseInt(duration) * 12;
-    const monthlyRate = annualRate / 12;
-
-    const monthlyPayment =
-      (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
-      (Math.pow(1 + monthlyRate, months) - 1);
-
-    let remainingBalance = principal;
-    const schedule = [];
-
-    for (let month = 1; month <= months; month++) {
-      const interest = remainingBalance * monthlyRate;
-      const principal = monthlyPayment - interest;
-      remainingBalance -= principal;
-
-      schedule.push({
-        month,
-        payment: monthlyPayment,
-        principal,
-        interest,
-        remainingBalance: Math.max(0, remainingBalance),
-      });
-    }
-
-    const totalInterest = schedule.reduce((sum, { interest }) => sum + interest, 0);
-
-    setResult({
-      monthlyPayment,
-      totalInterest,
-      totalAmount: principal + totalInterest,
-      schedule,
-    });
-
-    // Query AI assistant with the results
-    queryAssistant(`Analysez ce prêt :
-      - Montant: ${principal} FCFA
-      - Taux annuel: ${rate}%
-      - Durée: ${duration} ans
-      - Mensualité: ${monthlyPayment.toFixed(2)} FCFA
-      - Intérêts totaux: ${totalInterest.toFixed(2)} FCFA`);
-  };
-
-  const queryAssistant = async (query: string) => {
-    setIsLoading(true);
+  const handleCalculate = async () => {
     try {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer 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`
-        },
-        body: JSON.stringify({
-          model: "gpt-4",
-          messages: [
-            {
-              role: "system",
-              content: "Tu es un expert en crédit et finance qui aide à analyser les simulations de prêt."
-            },
-            ...messages,
-            { role: "user", content: query }
-          ],
-          temperature: 0.7,
-          max_tokens: 1024,
-        }),
-      });
+      const simulationResult = calculateLoan(amount, rate, duration);
+      setResult(simulationResult);
 
-      if (!response.ok) throw new Error("Erreur de communication avec l'assistant");
+      const query = formatLoanQuery(
+        parseFloat(amount),
+        rate,
+        duration,
+        simulationResult.monthlyPayment,
+        simulationResult.totalInterest
+      );
 
-      const data = await response.json();
+      setIsLoading(true);
+      const response = await queryOpenAI([{ role: "user", content: query }]);
       setMessages(prev => [...prev, 
         { role: "user", content: query },
-        { role: "assistant", content: data.choices[0].message.content }
+        { role: "assistant", content: response }
       ]);
     } catch (error) {
       console.error("Error:", error);
@@ -123,11 +51,23 @@ export const CreditSimulator = () => {
     }
   };
 
-  const sendMessage = (e: React.FormEvent) => {
+  const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!userMessage.trim()) return;
-    queryAssistant(userMessage);
-    setUserMessage("");
+    
+    setIsLoading(true);
+    try {
+      const response = await queryOpenAI([...messages, { role: "user", content: userMessage }]);
+      setMessages(prev => [...prev, 
+        { role: "user", content: userMessage },
+        { role: "assistant", content: response }
+      ]);
+      setUserMessage("");
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -183,51 +123,21 @@ export const CreditSimulator = () => {
             </div>
 
             <Button 
-              onClick={calculateLoan}
+              onClick={handleCalculate}
               className="w-full"
               disabled={!amount || !rate || !duration}
             >
               Calculer
             </Button>
 
-            {result && (
-              <div className="space-y-4 p-4 bg-accent/20 rounded-lg">
-                <div className="flex items-center gap-2">
-                  <PiggyBank className="w-5 h-5 text-primary" />
-                  <span className="font-medium">
-                    Mensualité: {result.monthlyPayment.toFixed(2)} FCFA
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Percent className="w-5 h-5 text-primary" />
-                  <span className="font-medium">
-                    Total des intérêts: {result.totalInterest.toFixed(2)} FCFA
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-primary" />
-                  <span className="font-medium">
-                    Coût total: {result.totalAmount.toFixed(2)} FCFA
-                  </span>
-                </div>
-              </div>
-            )}
+            {result && <LoanResults result={result} />}
           </div>
 
           <div className="flex flex-col h-full">
             <ScrollArea className="flex-1">
               <div className="space-y-4 pr-2">
                 {messages.map((message, index) => (
-                  <div
-                    key={index}
-                    className={`p-3 rounded-lg ${
-                      message.role === "assistant"
-                        ? "bg-accent/20"
-                        : "bg-primary text-white"
-                    }`}
-                  >
-                    {message.content}
-                  </div>
+                  <ChatMessage key={index} {...message} />
                 ))}
                 {isLoading && (
                   <div className="p-3 rounded-lg bg-accent/20">
