@@ -23,26 +23,17 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center text-white">
-        {/* Logo */}
-        <div className="flex justify-center mb-8 animate-fade-in">
-          <img 
-            src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
-            alt="SEED Finance Logo" 
-            className="h-24 w-auto"
-          />
-        </div>
-
         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
           Prenez le contrôle de vos finances dès aujourd'hui
         </h1>
-        <p className="text-xl md:text-2xl mb-8 animate-fade-in [animation-delay:200ms]">
+        <p className="text-xl md:text-2xl mb-12 animate-fade-in [animation-delay:200ms]">
           Solutions innovantes pour mieux gérer, épargner et investir votre argent
         </p>
-        <div className="flex flex-col md:flex-row justify-center gap-4 animate-fade-in [animation-delay:400ms]">
+        <div className="flex flex-col md:flex-row justify-center gap-6 animate-fade-in [animation-delay:400ms]">
           <Button
             size="lg"
             variant="default"
-            className="bg-white text-primary hover:bg-gray-50 text-base font-medium px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="bg-white text-primary hover:bg-white/90 text-lg font-medium px-10 py-6 rounded-full shadow-md hover:shadow-lg transition-all"
             onClick={() => setDialogOpen(true)}
           >
             En savoir plus
@@ -50,7 +41,7 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="outline"
-            className="bg-primary/20 backdrop-blur-sm border-2 border-white text-white hover:bg-primary/30 text-base font-medium px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg font-medium px-10 py-6 rounded-full shadow-md hover:shadow-lg transition-all"
             onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSeJthD93yMjD6BCGl2QCh3_OJJP-vulvYfy2aESzo0L-qfWcA/viewform', '_blank')}
           >
             S'inscrire
@@ -58,7 +49,7 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="outline"
-            className="bg-primary/20 backdrop-blur-sm border-2 border-white text-white hover:bg-primary/30 text-base font-medium px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+            className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg font-medium px-10 py-6 rounded-full shadow-md hover:shadow-lg transition-all"
           >
             <CreditSimulator />
           </Button>
