@@ -169,7 +169,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
           </div>
 
           <div className="flex flex-col h-full bg-accent/10 rounded-lg p-4">
-            <ScrollArea className="flex-1 pr-4">
+            <ScrollArea className="flex-1 pr-4 h-[calc(100%-80px)] overflow-y-auto">
               <div className="space-y-4">
                 {messages.map((message, index) => (
                   <ChatMessage key={index} {...message} />
