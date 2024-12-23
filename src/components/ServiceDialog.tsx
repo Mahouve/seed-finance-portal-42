@@ -9,7 +9,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
-import ReactMarkdown from 'react-markdown';
 import {
   Wallet,
   LineChart,
@@ -21,6 +20,8 @@ import {
   Send,
   Calculator,
 } from "lucide-react";
+import { ServiceCard } from "./ServiceCard";
+import { ChatMessage } from "./ChatMessage";
 import { CreditSimulator } from "./CreditSimulator";
 
 const services = [
@@ -147,16 +148,13 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-2">
               {services.map((service) => (
-                <Button
+                <ServiceCard
                   key={service.title}
-                  variant="outline"
-                  className="h-auto py-3 flex flex-col items-center gap-2 text-center hover:bg-accent/20 transition-all duration-300"
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
                   onClick={() => queryAssistant(service.query)}
-                >
-                  <service.icon className="h-5 w-5 text-primary" />
-                  <span className="font-medium text-sm">{service.title}</span>
-                  <span className="text-xs text-muted-foreground">{service.description}</span>
-                </Button>
+                />
               ))}
             </div>
             
@@ -166,7 +164,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
               onClick={() => setShowSimulator(true)}
             >
               <Calculator className="h-4 w-4" />
-              Simulateur de coût
+              Simulateur de crédit
             </Button>
           </div>
 
@@ -174,18 +172,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
             <ScrollArea className="flex-1 pr-4">
               <div className="space-y-4">
                 {messages.map((message, index) => (
-                  <div
-                    key={index}
-                    className={`p-3 rounded-lg ${
-                      message.role === "assistant"
-                        ? "bg-background border border-border"
-                        : "bg-primary text-white"
-                    }`}
-                  >
-                    <ReactMarkdown>
-                      {message.content}
-                    </ReactMarkdown>
-                  </div>
+                  <ChatMessage key={index} {...message} />
                 ))}
                 {isLoading && (
                   <div className="p-3 rounded-lg bg-background border border-border animate-pulse">
