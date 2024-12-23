@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ServiceDialog } from "./ServiceDialog";
-import { CreditSimulator } from "./CreditSimulator";
 
 export const Hero = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -45,13 +44,6 @@ export const Hero = () => {
             onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSeJthD93yMjD6BCGl2QCh3_OJJP-vulvYfy2aESzo0L-qfWcA/viewform', '_blank')}
           >
             S'inscrire
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg font-medium px-10 py-6 rounded-full shadow-md hover:shadow-lg transition-all"
-          >
-            <CreditSimulator />
           </Button>
         </div>
       </div>
