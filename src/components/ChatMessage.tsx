@@ -1,20 +1,21 @@
-import ReactMarkdown from 'react-markdown';
-
 interface ChatMessageProps {
   role: string;
   content: string;
 }
 
 export const ChatMessage = ({ role, content }: ChatMessageProps) => {
+  const isUser = role === "user";
+
   return (
     <div
-      className={`p-3 rounded-lg ${
-        role === "assistant"
-          ? "bg-background border border-border"
-          : "bg-primary text-white"
+      className={`p-2 rounded-lg text-sm ${
+        isUser
+          ? "bg-primary text-white ml-auto"
+          : "bg-background border border-border"
       }`}
+      style={{ maxWidth: "90%" }}
     >
-      <ReactMarkdown>{content}</ReactMarkdown>
+      {content}
     </div>
   );
 };

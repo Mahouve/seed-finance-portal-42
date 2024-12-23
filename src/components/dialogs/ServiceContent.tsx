@@ -81,7 +81,7 @@ export const ServiceContent = ({
 }: ServiceContentProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[calc(90vh-100px)]">
-      <div className="space-y-4">
+      <div className="space-y-3">
         <div className="grid grid-cols-2 gap-2">
           {services.map((service) => (
             <ServiceCard
@@ -96,7 +96,7 @@ export const ServiceContent = ({
         
         <Button 
           variant="default"
-          className="w-full flex items-center gap-2"
+          className="w-full flex items-center gap-2 text-sm"
           onClick={onSimulatorClick}
         >
           <Calculator className="h-4 w-4" />
@@ -104,29 +104,29 @@ export const ServiceContent = ({
         </Button>
       </div>
 
-      <div className="flex flex-col h-full bg-accent/10 rounded-lg p-4">
-        <ScrollArea className="flex-1 pr-4">
-          <div className="space-y-4 pr-2">
+      <div className="flex flex-col h-full bg-accent/10 rounded-lg p-3">
+        <ScrollArea className="flex-1 pr-3">
+          <div className="space-y-3">
             {messages.map((message, index) => (
               <ChatMessage key={index} {...message} />
             ))}
             {isLoading && (
-              <div className="p-3 rounded-lg bg-background border border-border animate-pulse">
+              <div className="p-2 rounded-lg bg-background border border-border animate-pulse text-sm">
                 Analyse...
               </div>
             )}
           </div>
         </ScrollArea>
 
-        <form onSubmit={onSendMessage} className="mt-4">
+        <form onSubmit={onSendMessage} className="mt-3">
           <div className="flex gap-2">
             <Input
               value={userMessage}
               onChange={(e) => onMessageChange(e.target.value)}
               placeholder="Vos questions..."
-              className="flex-1"
+              className="flex-1 text-sm"
             />
-            <Button type="submit" disabled={isLoading}>
+            <Button type="submit" disabled={isLoading} size="sm">
               <Send className="h-4 w-4" />
             </Button>
           </div>
