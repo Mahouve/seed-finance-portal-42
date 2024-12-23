@@ -37,7 +37,7 @@ export const AIAssistantDrawer = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer sk-your-api-key-here"
+          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
         },
         body: JSON.stringify({
           model: "gpt-4o",
@@ -81,7 +81,7 @@ export const AIAssistantDrawer = () => {
           size="icon"
           className="fixed bottom-4 right-4 h-12 w-12 rounded-full shadow-lg bg-primary hover:bg-secondary transition-colors"
         >
-          <MessageSquare className="h-6 w-6" />
+          <MessageSquare className="h-6 w-6 text-white" />
         </Button>
       </SheetTrigger>
       <SheetContent className="w-[90vw] sm:w-[440px] h-full bg-background">
@@ -116,7 +116,7 @@ export const AIAssistantDrawer = () => {
                   <div
                     className={`max-w-[80%] rounded-lg p-3 ${
                       message.role === "assistant"
-                        ? "bg-accent text-foreground"
+                        ? "bg-accent/20 text-foreground"
                         : "bg-primary text-white"
                     }`}
                   >
@@ -126,7 +126,7 @@ export const AIAssistantDrawer = () => {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="max-w-[80%] rounded-lg p-3 bg-accent text-foreground">
+                  <div className="max-w-[80%] rounded-lg p-3 bg-accent/20 text-foreground">
                     En train d'écrire...
                   </div>
                 </div>
