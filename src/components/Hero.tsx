@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ServiceDialog } from "./ServiceDialog";
 
 export const Hero = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -28,6 +32,7 @@ export const Hero = () => {
             size="lg"
             variant="default"
             className="bg-white hover:bg-gray-50 text-primary text-xl font-semibold px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+            onClick={() => setDialogOpen(true)}
           >
             En savoir plus
           </Button>
@@ -41,6 +46,8 @@ export const Hero = () => {
           </Button>
         </div>
       </div>
+
+      <ServiceDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </div>
   );
 };
