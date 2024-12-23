@@ -33,21 +33,34 @@ export const AIAssistantDrawer = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-api-key": "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",
+          "anthropic-version": "2023-06-01"
         },
         body: JSON.stringify({
-          message: input,
+          messages: [{ role: "user", content: input }],
+          model: "claude-3-opus-20240229",
+          max_tokens: 1024,
+          temperature: 0.7,
+          system: "Tu es un assistant financier expert qui aide les utilisateurs à comprendre les marchés financiers et la gestion de patrimoine.",
+          metadata: {
+            user_id: "anonymous"
+          }
         }),
       });
 
       if (!response.ok) throw new Error("Erreur de communication avec l'assistant");
 
       const data = await response.json();
-      setMessages((prev) => [...prev, { role: "assistant", content: data.response }]);
+      setMessages((prev) => [...prev, { 
+        role: "assistant", 
+        content: data.content[0].text 
+      }]);
     } catch (error) {
+      console.error("Error:", error);
       toast({
         title: "Erreur",
         description: "Impossible de communiquer avec l'assistant pour le moment",
