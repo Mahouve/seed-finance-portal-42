@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useToast } from "@/components/ui/use-toast";
-import ReactMarkdown from "react-markdown";
+import { Input } from "@/components/ui/input";
+import ReactMarkdown from 'react-markdown';
 import {
   Wallet,
   LineChart,
@@ -18,6 +18,7 @@ import {
   BookOpen,
   Building2,
   GraduationCap,
+  Send,
 } from "lucide-react";
 
 const services = [
@@ -73,7 +74,7 @@ interface ServiceDialogProps {
 export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
   const [messages, setMessages] = useState<Array<{ role: string; content: string }>>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
+  const [userMessage, setUserMessage] = useState("");
 
   const queryAssistant = async (query: string) => {
     setIsLoading(true);
@@ -82,7 +83,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer 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"
+          "Authorization": `Bearer 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`
         },
         body: JSON.stringify({
           model: "gpt-4",
@@ -91,10 +92,8 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
               role: "system",
               content: "Tu es un assistant financier expert qui aide les utilisateurs à comprendre les services de SEED Finance."
             },
-            {
-              role: "user",
-              content: query
-            }
+            ...messages,
+            { role: "user", content: query }
           ],
           temperature: 0.7,
           max_tokens: 1024,
@@ -110,21 +109,23 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
       ]);
     } catch (error) {
       console.error("Error:", error);
-      toast({
-        title: "Erreur",
-        description: "Impossible de communiquer avec l'assistant pour le moment",
-        variant: "destructive",
-      });
     } finally {
       setIsLoading(false);
     }
   };
 
+  const sendMessage = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!userMessage.trim()) return;
+    queryAssistant(userMessage);
+    setUserMessage("");
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl h-[80vh]">
+      <DialogContent className="max-w-4xl h-[80vh] overflow-hidden">
         <DialogHeader>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 mb-4">
             <img 
               src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
               alt="SEED Finance Logo" 
@@ -132,50 +133,71 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
             />
             <div>
               <DialogTitle className="text-2xl font-bold">Services SEED Finance</DialogTitle>
-              <p className="text-muted-foreground">
+              <DialogDescription>
                 Découvrez nos services en détail. Cliquez sur un service pour en savoir plus.
-              </p>
+              </DialogDescription>
             </div>
           </div>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-          {services.map((service) => (
-            <Button
-              key={service.title}
-              variant="outline"
-              className="h-auto p-4 flex flex-col items-center gap-3 text-center hover:bg-accent/20 transition-all duration-300"
-              onClick={() => queryAssistant(service.query)}
-              disabled={isLoading}
-            >
-              <service.icon className="h-8 w-8 text-primary" />
-              <span className="font-medium">{service.title}</span>
-              <span className="text-sm text-muted-foreground">{service.description}</span>
-            </Button>
-          ))}
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {services.map((service) => (
+                <Button
+                  key={service.title}
+                  variant="outline"
+                  className="h-auto p-4 flex flex-col items-center gap-3 text-center hover:bg-accent/20 transition-all duration-300"
+                  onClick={() => queryAssistant(service.query)}
+                >
+                  <service.icon className="h-8 w-8 text-primary" />
+                  <span className="font-medium">{service.title}</span>
+                  <span className="text-sm text-muted-foreground">{service.description}</span>
+                </Button>
+              ))}
+            </div>
+          </div>
 
-        <ScrollArea className="flex-1 h-[40vh] border rounded-lg p-4">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`mb-4 ${
-                message.role === "assistant" 
-                  ? "bg-accent/20 rounded-lg p-3 animate-fade-in" 
-                  : "bg-primary text-white rounded-lg p-3 animate-fade-in"
-              }`}
-            >
-              <ReactMarkdown>
-                {message.content}
-              </ReactMarkdown>
-            </div>
-          ))}
-          {isLoading && (
-            <div className="animate-pulse text-muted-foreground p-3">
-              En train de répondre...
-            </div>
-          )}
-        </ScrollArea>
+          <div className="flex flex-col h-full bg-accent/10 rounded-lg p-4">
+            <ScrollArea className="flex-1 pr-4">
+              <div className="space-y-4">
+                {messages.map((message, index) => (
+                  <div
+                    key={index}
+                    className={`p-3 rounded-lg ${
+                      message.role === "assistant"
+                        ? "bg-background border border-border"
+                        : "bg-primary text-white"
+                    }`}
+                  >
+                    <ReactMarkdown>
+                      {message.content}
+                    </ReactMarkdown>
+                  </div>
+                ))}
+                {isLoading && (
+                  <div className="p-3 rounded-lg bg-background border border-border animate-pulse">
+                    Analyse en cours...
+                  </div>
+                )}
+              </div>
+            </ScrollArea>
+
+            <form onSubmit={sendMessage} className="mt-4">
+              <div className="flex gap-2">
+                <Input
+                  value={userMessage}
+                  onChange={(e) => setUserMessage(e.target.value)}
+                  placeholder="Posez vos questions sur nos services..."
+                  className="flex-1"
+                />
+                <Button type="submit" disabled={isLoading}>
+                  <Send className="h-4 w-4" />
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   );
