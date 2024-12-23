@@ -18,7 +18,7 @@ interface Message {
 }
 
 // Note: This is a default API key for testing purposes only
-const DEFAULT_API_KEY = "asst_TjUpPUJ6t8GPzW3OW4V6Qn7h";
+const DEFAULT_API_KEY = "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";
 
 export const AIAssistantDrawer = () => {
   const [messages, setMessages] = useState<Message[]>([]);
