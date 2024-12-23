@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageSquare, X } from "lucide-react";
+import { MessageSquare, X, Trash2, Type } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/components/ui/use-toast";
+import ReactMarkdown from 'react-markdown';
 
 interface Message {
   role: "assistant" | "user";
@@ -24,6 +25,7 @@ export const AIAssistantDrawer = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [fontSize, setFontSize] = useState("text-base"); // text-sm, text-base, text-lg
   const { toast } = useToast();
 
   const handleSendMessage = async (e: React.FormEvent) => {
@@ -76,6 +78,21 @@ export const AIAssistantDrawer = () => {
     }
   };
 
+  const clearChat = () => {
+    setMessages([]);
+    toast({
+      title: "Chat effacé",
+      description: "L'historique de conversation a été réinitialisé",
+    });
+  };
+
+  const toggleFontSize = () => {
+    const sizes = ["text-sm", "text-base", "text-lg"];
+    const currentIndex = sizes.indexOf(fontSize);
+    const nextIndex = (currentIndex + 1) % sizes.length;
+    setFontSize(sizes[nextIndex]);
+  };
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -98,11 +115,29 @@ export const AIAssistantDrawer = () => {
               />
               <SheetTitle className="text-foreground">Assistant IA</SheetTitle>
             </div>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <X className="h-4 w-4" />
+            <div className="flex items-center gap-2">
+              <Button 
+                variant="ghost" 
+                size="icon"
+                onClick={toggleFontSize}
+                title="Changer la taille du texte"
+              >
+                <Type className="h-4 w-4" />
               </Button>
-            </SheetTrigger>
+              <Button 
+                variant="ghost" 
+                size="icon"
+                onClick={clearChat}
+                title="Effacer la conversation"
+              >
+                <Trash2 className="h-4 w-4" />
+              </Button>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <X className="h-4 w-4" />
+                </Button>
+              </SheetTrigger>
+            </div>
           </div>
         </SheetHeader>
         
@@ -117,13 +152,26 @@ export const AIAssistantDrawer = () => {
                   }`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-lg p-3 ${
+                    className={`max-w-[80%] rounded-lg p-3 ${fontSize} ${
                       message.role === "assistant"
                         ? "bg-accent/20 text-foreground"
                         : "bg-primary text-white"
                     }`}
                   >
-                    {message.content}
+                    <ReactMarkdown
+                      components={{
+                        p: ({node, ...props}) => <p className="mb-2" {...props} />,
+                        a: ({node, ...props}) => <a className="text-blue-500 hover:underline" {...props} />,
+                        ul: ({node, ...props}) => <ul className="list-disc ml-4 mb-2" {...props} />,
+                        ol: ({node, ...props}) => <ol className="list-decimal ml-4 mb-2" {...props} />,
+                        code: ({node, inline, ...props}) => 
+                          inline ? 
+                            <code className="bg-gray-100 px-1 rounded" {...props} /> :
+                            <code className="block bg-gray-100 p-2 rounded my-2" {...props} />
+                      }}
+                    >
+                      {message.content}
+                    </ReactMarkdown>
                   </div>
                 </div>
               ))}
