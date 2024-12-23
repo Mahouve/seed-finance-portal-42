@@ -17,6 +17,9 @@ interface Message {
   content: string;
 }
 
+// Note: This is a default API key for testing purposes only
+const DEFAULT_API_KEY = "asst_TjUpPUJ6t8GPzW3OW4V6Qn7h";
+
 export const AIAssistantDrawer = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -37,10 +40,10 @@ export const AIAssistantDrawer = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
+          "Authorization": `Bearer ${DEFAULT_API_KEY}`
         },
         body: JSON.stringify({
-          model: "gpt-4o",
+          model: "gpt-4",
           messages: [
             {
               role: "system",
