@@ -20,7 +20,7 @@ const BookDedication = () => {
           </div>
 
           {/* Content Section */}
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <h1 className="text-3xl md:text-4xl font-bold text-primary">
               Découvrez "Les clés de l'autonomie financière"
             </h1>
@@ -34,8 +34,8 @@ const BookDedication = () => {
         </div>
 
         {/* Features Section */}
-        <div className="mt-16 grid md:grid-cols-2 gap-8 animate-fade-in">
-          <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
+          <div className="bg-white p-6 rounded-lg shadow-md animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <h2 className="text-2xl font-bold text-primary mb-4">Pourquoi ce livre est fait pour vous ?</h2>
             <ul className="space-y-4">
               <li className="flex items-center gap-2">
@@ -57,7 +57,7 @@ const BookDedication = () => {
             </ul>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-white p-6 rounded-lg shadow-md animate-fade-in" style={{ animationDelay: "0.6s" }}>
             <h2 className="text-2xl font-bold text-primary mb-4">Avis des lecteurs</h2>
             <div className="space-y-4">
               <blockquote className="border-l-4 border-primary pl-4 italic">
@@ -73,7 +73,7 @@ const BookDedication = () => {
         </div>
 
         {/* Book Details and CTA */}
-        <div className="mt-16 text-center animate-fade-in">
+        <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: "0.8s" }}>
           <div className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
             <h2 className="text-2xl font-bold text-primary mb-4">Détails du livre</h2>
             <p className="text-xl font-bold mb-2">Prix : 12 000 FCFA</p>
@@ -85,11 +85,12 @@ const BookDedication = () => {
         </div>
 
         {/* Author Section */}
-        <div className="mt-16 animate-fade-in">
+        <div className="mt-16 animate-fade-in" style={{ animationDelay: "1s" }}>
           <div className="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
             <h2 className="text-2xl font-bold text-primary mb-4">À propos de l'auteur</h2>
             <p className="text-lg">
-              Victoire DJANHAN, passionné(e) de finance personnelle et engagé(e) à aider les autres à atteindre leur autonomie financière, 
+              <span className="text-[#8B5CF6] font-semibold animate-pulse">Victoire DJANHAN</span>, 
+              passionné(e) de finance personnelle et engagé(e) à aider les autres à atteindre leur autonomie financière, 
               partage dans ce livre des années d'expérience et des outils concrets pour changer votre vie.
             </p>
           </div>
