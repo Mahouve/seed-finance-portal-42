@@ -7,18 +7,27 @@ interface ExchangeRates {
   [key: string]: number;
 }
 
+interface CurrencyInfo {
+  code: string;
+  name: string;
+}
+
+interface CurrencyMap {
+  [key: string]: CurrencyInfo;
+}
+
 const fetchExchangeRates = async () => {
   const response = await fetch("https://open.er-api.com/v6/latest/USD");
   const data = await response.json();
   return data.rates;
 };
 
-const centralAfricanCurrencies = {
+const centralAfricanCurrencies: CurrencyMap = {
   "CFA Franc BEAC (XAF)": { code: "XAF", name: "Franc CFA BEAC" },
   "CFA Franc BCEAO (XOF)": { code: "XOF", name: "Franc CFA BCEAO" },
 };
 
-const otherAfricanCurrencies = {
+const otherAfricanCurrencies: CurrencyMap = {
   "Nigerian Naira (NGN)": { code: "NGN", name: "Naira Nigérian" },
   "South African Rand (ZAR)": { code: "ZAR", name: "Rand Sud-africain" },
   "Kenyan Shilling (KES)": { code: "KES", name: "Shilling Kenyan" },
@@ -42,7 +51,7 @@ export const CurrencyTabs = () => {
     return ((current - previous) / previous) * 100;
   };
 
-  const renderCurrencyCards = (currencies: typeof centralAfricanCurrencies) => {
+  const renderCurrencyCards = (currencies: CurrencyMap) => {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.entries(currencies).map(([key, { code }]) => (
