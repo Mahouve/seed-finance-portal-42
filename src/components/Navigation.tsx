@@ -81,7 +81,7 @@ export const Navigation = () => {
             <Link to="/book-dedication">
               <Button 
                 variant="default" 
-                className="h-11 px-6 text-base font-medium shadow-md hover:shadow-lg transition-all"
+                className="h-11 px-6 text-base font-medium shadow-md hover:shadow-lg transition-all text-white"
               >
                 Dédicace du Livre
               </Button>
@@ -130,7 +130,7 @@ export const Navigation = () => {
                 <Link to="/book-dedication">
                   <Button 
                     variant="default" 
-                    className="w-full h-11 text-base font-medium shadow-md"
+                    className="w-full h-11 text-base font-medium shadow-md text-white"
                   >
                     Dédicace du Livre
                   </Button>
