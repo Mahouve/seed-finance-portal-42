@@ -9,9 +9,14 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Clock, ExternalLink } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useRef } from "react";
 
 export const NewsCarousel = () => {
   const { data: news, isLoading } = useFinanceNews();
+  const plugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
 
   if (isLoading) {
     return (
@@ -36,6 +41,7 @@ export const NewsCarousel = () => {
             align: "start",
             loop: true,
           }}
+          plugins={[plugin.current]}
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
