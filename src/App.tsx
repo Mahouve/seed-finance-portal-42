@@ -13,6 +13,7 @@ import Particulier from "./pages/Particulier";
 import Markets from "./pages/Markets";
 import About from "./pages/About";
 import BookDedication from "./pages/BookDedication";
+import Support from "./pages/Support";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const AnimatedRoutes = () => {
           <Route path="/markets" element={<Markets />} />
           <Route path="/about" element={<About />} />
           <Route path="/book-dedication" element={<BookDedication />} />
+          <Route path="/support" element={<Support />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

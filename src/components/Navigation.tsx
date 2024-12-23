@@ -68,13 +68,14 @@ export const Navigation = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
+
             <Link to="/about" className="nav-link">
               À propos
             </Link>
             <Link to="/education" className="nav-link">
               Éducation Financière
             </Link>
-            <Link to="#" className="nav-link">
+            <Link to="/support" className="nav-link">
               Support Client
             </Link>
             <Link to="/book-dedication">
@@ -85,6 +86,7 @@ export const Navigation = () => {
                 Dédicace du Livre
               </Button>
             </Link>
+
           </div>
 
           {/* Mobile Navigation Button */}
