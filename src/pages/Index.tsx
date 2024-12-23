@@ -10,6 +10,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { StockTicker } from "@/components/StockTicker";
 import { DecorativeElements } from "@/components/DecorativeElements";
+import { NewsCarousel } from "@/components/NewsCarousel";
 
 const Index = () => {
   return (
@@ -22,6 +23,9 @@ const Index = () => {
           <Hero />
         </div>
         <div className="scroll-animation [animation-delay:200ms]">
+          <NewsCarousel />
+        </div>
+        <div className="scroll-animation [animation-delay:400ms]">
           <Services />
         </div>
         <div className="scroll-animation [animation-delay:400ms]">
