@@ -33,22 +33,24 @@ export const AIAssistantDrawer = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "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",
-          "anthropic-version": "2023-06-01"
+          "Authorization": "Bearer sk-your-api-key-here"
         },
         body: JSON.stringify({
-          messages: [{ role: "user", content: input }],
-          model: "claude-3-opus-20240229",
-          max_tokens: 1024,
+          model: "gpt-4o",
+          messages: [
+            {
+              role: "system",
+              content: "Tu es un assistant financier expert qui aide les utilisateurs à comprendre les marchés financiers et la gestion de patrimoine."
+            },
+            ...messages,
+            userMessage
+          ],
           temperature: 0.7,
-          system: "Tu es un assistant financier expert qui aide les utilisateurs à comprendre les marchés financiers et la gestion de patrimoine.",
-          metadata: {
-            user_id: "anonymous"
-          }
+          max_tokens: 1024,
         }),
       });
 
@@ -57,7 +59,7 @@ export const AIAssistantDrawer = () => {
       const data = await response.json();
       setMessages((prev) => [...prev, { 
         role: "assistant", 
-        content: data.content[0].text 
+        content: data.choices[0].message.content 
       }]);
     } catch (error) {
       console.error("Error:", error);
@@ -77,21 +79,28 @@ export const AIAssistantDrawer = () => {
         <Button
           variant="default"
           size="icon"
-          className="fixed bottom-4 right-4 h-12 w-12 rounded-full shadow-lg"
+          className="fixed bottom-4 right-4 h-12 w-12 rounded-full shadow-lg bg-primary hover:bg-secondary transition-colors"
         >
           <MessageSquare className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="w-[90vw] sm:w-[440px] h-full">
-        <SheetHeader>
-          <SheetTitle className="flex items-center justify-between">
-            Assistant IA
+      <SheetContent className="w-[90vw] sm:w-[440px] h-full bg-background">
+        <SheetHeader className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <img 
+                src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
+                alt="Seed Finance Logo" 
+                className="h-8 w-auto"
+              />
+              <SheetTitle className="text-foreground">Assistant IA</SheetTitle>
+            </div>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <X className="h-4 w-4" />
               </Button>
             </SheetTrigger>
-          </SheetTitle>
+          </div>
         </SheetHeader>
         
         <div className="flex flex-col h-[calc(100vh-8rem)]">
@@ -107,8 +116,8 @@ export const AIAssistantDrawer = () => {
                   <div
                     className={`max-w-[80%] rounded-lg p-3 ${
                       message.role === "assistant"
-                        ? "bg-secondary text-secondary-foreground"
-                        : "bg-primary text-primary-foreground"
+                        ? "bg-accent text-foreground"
+                        : "bg-primary text-white"
                     }`}
                   >
                     {message.content}
@@ -117,7 +126,7 @@ export const AIAssistantDrawer = () => {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="max-w-[80%] rounded-lg p-3 bg-secondary text-secondary-foreground">
+                  <div className="max-w-[80%] rounded-lg p-3 bg-accent text-foreground">
                     En train d'écrire...
                   </div>
                 </div>
@@ -132,9 +141,13 @@ export const AIAssistantDrawer = () => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Écrivez votre message..."
                 disabled={isLoading}
-                className="flex-1"
+                className="flex-1 bg-white border-gray-200"
               />
-              <Button type="submit" disabled={isLoading}>
+              <Button 
+                type="submit" 
+                disabled={isLoading}
+                className="bg-primary hover:bg-secondary text-white"
+              >
                 Envoyer
               </Button>
             </div>
