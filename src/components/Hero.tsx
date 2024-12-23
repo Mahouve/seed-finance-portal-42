@@ -34,7 +34,7 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="outline"
-            className="border-white text-white hover:bg-white/10"
+            className="border-2 border-white text-white hover:bg-white hover:text-primary transition-colors"
           >
             S'inscrire
           </Button>
