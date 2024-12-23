@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ServiceDialog } from "./ServiceDialog";
+import { CreditSimulator } from "./CreditSimulator";
 
 export const Hero = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Parallax Effect */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 transform transition-transform duration-500"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          transform: `translateY(${typeof window !== 'undefined' ? window.scrollY * 0.5 : 0}px)`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90" />
@@ -21,6 +23,15 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center text-white">
+        {/* Logo */}
+        <div className="flex justify-center mb-8 animate-fade-in">
+          <img 
+            src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
+            alt="SEED Finance Logo" 
+            className="h-24 w-auto"
+          />
+        </div>
+
         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
           Prenez le contrôle de vos finances dès aujourd'hui
         </h1>
@@ -44,6 +55,7 @@ export const Hero = () => {
           >
             S'inscrire
           </Button>
+          <CreditSimulator />
         </div>
       </div>
 

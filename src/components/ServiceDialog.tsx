@@ -7,7 +7,6 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/components/ui/use-toast";
 import ReactMarkdown from "react-markdown";
@@ -25,36 +24,43 @@ const services = [
   {
     icon: Wallet,
     title: "Gestion Financière",
+    description: "Solutions personnalisées pour gérer vos finances",
     query: "Expliquez-moi les services de gestion financière de SEED Finance"
   },
   {
     icon: LineChart,
     title: "Investissements",
+    description: "Stratégies d'investissement adaptées",
     query: "Quels sont les services d'investissement proposés par SEED Finance?"
   },
   {
     icon: Shield,
     title: "Protection du Patrimoine",
+    description: "Sécurisez votre avenir financier",
     query: "Comment SEED Finance aide à protéger le patrimoine?"
   },
   {
     icon: Users,
     title: "Services aux Particuliers",
+    description: "Solutions pour les besoins individuels",
     query: "Détaillez les services pour particuliers de SEED Finance"
   },
   {
     icon: BookOpen,
     title: "Formation",
+    description: "Programmes de formation financière",
     query: "Quels sont les services de formation proposés par SEED Finance?"
   },
   {
     icon: Building2,
     title: "Services aux Entreprises",
+    description: "Solutions pour les professionnels",
     query: "Expliquez les services pour entreprises de SEED Finance"
   },
   {
     icon: GraduationCap,
     title: "Éducation Financière",
+    description: "Apprentissage et développement",
     query: "Comment SEED Finance contribue à l'éducation financière?"
   }
 ];
@@ -118,23 +124,33 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl h-[80vh]">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">Services SEED Finance</DialogTitle>
-          <DialogDescription>
-            Découvrez nos services en détail. Cliquez sur un service pour en savoir plus.
-          </DialogDescription>
+          <div className="flex items-center gap-4">
+            <img 
+              src="/lovable-uploads/fb370886-20e3-4f2b-8bc5-5dd8b28ca800.png" 
+              alt="SEED Finance Logo" 
+              className="h-12 w-auto"
+            />
+            <div>
+              <DialogTitle className="text-2xl font-bold">Services SEED Finance</DialogTitle>
+              <p className="text-muted-foreground">
+                Découvrez nos services en détail. Cliquez sur un service pour en savoir plus.
+              </p>
+            </div>
+          </div>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
           {services.map((service) => (
             <Button
               key={service.title}
               variant="outline"
-              className="h-auto p-4 flex items-center gap-3"
+              className="h-auto p-4 flex flex-col items-center gap-3 text-center hover:bg-accent/20 transition-all duration-300"
               onClick={() => queryAssistant(service.query)}
               disabled={isLoading}
             >
-              <service.icon className="h-6 w-6 text-primary" />
-              <span className="text-left font-medium">{service.title}</span>
+              <service.icon className="h-8 w-8 text-primary" />
+              <span className="font-medium">{service.title}</span>
+              <span className="text-sm text-muted-foreground">{service.description}</span>
             </Button>
           ))}
         </div>
@@ -145,8 +161,8 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
               key={index}
               className={`mb-4 ${
                 message.role === "assistant" 
-                  ? "bg-accent/20 rounded-lg p-3" 
-                  : "bg-primary text-white rounded-lg p-3"
+                  ? "bg-accent/20 rounded-lg p-3 animate-fade-in" 
+                  : "bg-primary text-white rounded-lg p-3 animate-fade-in"
               }`}
             >
               <ReactMarkdown>
@@ -155,7 +171,7 @@ export const ServiceDialog = ({ open, onOpenChange }: ServiceDialogProps) => {
             </div>
           ))}
           {isLoading && (
-            <div className="animate-pulse text-muted-foreground">
+            <div className="animate-pulse text-muted-foreground p-3">
               En train de répondre...
             </div>
           )}
