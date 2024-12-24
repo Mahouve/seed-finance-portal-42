@@ -41,7 +41,8 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
   };
 
   const calculateTotalExpenses = () => {
-    return Object.values(budget).reduce((acc, curr) => acc + curr, 0) - budget.monthlyIncome;
+    const { monthlyIncome, ...expenses } = budget;
+    return Object.values(expenses).reduce((acc, curr) => acc + curr, 0);
   };
 
   const getDisposableIncome = () => {
@@ -89,7 +90,7 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
                 type="number"
                 value={budget[id as keyof BudgetInfo] || ''}
                 onChange={handleBudgetChange(id as keyof BudgetInfo)}
-                placeholder={`Ex: ${id === 'rentMortgage' ? '150000' : '50000'}`}
+                placeholder="Ex: 50000"
               />
             </div>
           ))}

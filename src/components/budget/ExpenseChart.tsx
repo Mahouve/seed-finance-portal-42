@@ -4,10 +4,11 @@ import { BudgetInfo } from './BudgetForm';
 
 interface ExpenseChartProps {
   budget: BudgetInfo;
+  expenses?: Array<{ description: string; amount: number; category: string }>;
 }
 
-export const ExpenseChart = ({ budget }: ExpenseChartProps) => {
-  const data = [
+export const ExpenseChart = ({ budget, expenses = [] }: ExpenseChartProps) => {
+  const budgetData = [
     { name: 'Loyer', amount: budget.rentMortgage },
     { name: 'Factures', amount: budget.utilities },
     { name: 'Transport', amount: budget.transportation },
@@ -16,6 +17,10 @@ export const ExpenseChart = ({ budget }: ExpenseChartProps) => {
     { name: 'Loisirs', amount: budget.entertainment },
     { name: 'Épargne', amount: budget.savings },
     { name: 'Autres', amount: budget.otherExpenses },
+    ...expenses.map(expense => ({
+      name: expense.description,
+      amount: expense.amount
+    }))
   ];
 
   return (
@@ -25,7 +30,7 @@ export const ExpenseChart = ({ budget }: ExpenseChartProps) => {
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={data}>
+          <BarChart data={budgetData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />

@@ -106,7 +106,7 @@ export const CreditSimulator = () => {
             ) : (
               <>
                 <div className="space-y-4">
-                  <ExpenseChart budget={budget} />
+                  <ExpenseChart budget={budget} expenses={expenses} />
                   <AddExpenseForm onAddExpense={handleAddExpense} />
                 </div>
 
