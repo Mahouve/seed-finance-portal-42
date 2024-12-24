@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AIAssistantDrawer } from "@/components/AIAssistantDrawer";
 import { SplashScreen } from "@/components/SplashScreen";
 import { AnimatePresence, motion } from "framer-motion";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import Education from "./pages/Education";
 import Entreprise from "./pages/Entreprise";
@@ -14,6 +15,7 @@ import Markets from "./pages/Markets";
 import About from "./pages/About";
 import BookDedication from "./pages/BookDedication";
 import Support from "./pages/Support";
+import CreditSimulator from "./pages/CreditSimulator";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +40,7 @@ const AnimatedRoutes = () => {
           <Route path="/about" element={<About />} />
           <Route path="/book-dedication" element={<BookDedication />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/credit-simulator" element={<CreditSimulator />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
@@ -46,15 +49,17 @@ const AnimatedRoutes = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename="/">
-        <SplashScreen />
-        <AnimatedRoutes />
-        <AIAssistantDrawer />
-      </BrowserRouter>
-    </TooltipProvider>
+    <ThemeProvider defaultTheme="light" storageKey="seed-finance-theme">
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter basename="/">
+          <SplashScreen />
+          <AnimatedRoutes />
+          <AIAssistantDrawer />
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
