@@ -11,7 +11,7 @@ export const queryOpenAI = async (messages: Array<{ role: string; content: strin
         messages: [
           {
             role: "system",
-            content: "Tu es un expert en crédit et finance qui aide à analyser les simulations de prêt de manière détaillée et professionnelle."
+            content: "Tu es un expert en finance qui aide les utilisateurs à comprendre les services de SEED Finance et répond à leurs questions de manière professionnelle."
           },
           ...messages
         ],
@@ -20,12 +20,14 @@ export const queryOpenAI = async (messages: Array<{ role: string; content: strin
       }),
     });
 
-    if (!response.ok) throw new Error("Erreur de communication avec l'assistant");
+    if (!response.ok) {
+      throw new Error(`Erreur API: ${response.status} ${response.statusText}`);
+    }
 
     const data = await response.json();
     return data.choices[0].message.content;
   } catch (error) {
-    console.error("Error:", error);
-    throw error;
+    console.error("Erreur lors de l'appel à OpenAI:", error);
+    throw new Error("Impossible de communiquer avec l'assistant pour le moment. Veuillez réessayer plus tard.");
   }
 };

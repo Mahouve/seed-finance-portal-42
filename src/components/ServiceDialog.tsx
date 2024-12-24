@@ -9,6 +9,7 @@ import {
 import { queryOpenAI } from "@/utils/openaiUtils";
 import { ServiceContent } from "./dialogs/ServiceContent";
 import { CreditSimulator } from "./CreditSimulator";
+import { useToast } from "@/components/ui/use-toast";
 
 interface ServiceDialogProps {
   open: boolean;
@@ -21,6 +22,7 @@ export const ServiceDialog = ({ open, onOpenChange, initialQuery }: ServiceDialo
   const [isLoading, setIsLoading] = useState(false);
   const [userMessage, setUserMessage] = useState("");
   const [showSimulator, setShowSimulator] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     if (open && initialQuery) {
@@ -40,6 +42,11 @@ export const ServiceDialog = ({ open, onOpenChange, initialQuery }: ServiceDialo
       ]);
     } catch (error) {
       console.error("Error:", error);
+      toast({
+        title: "Erreur",
+        description: "Impossible de communiquer avec l'assistant pour le moment",
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -59,6 +66,11 @@ export const ServiceDialog = ({ open, onOpenChange, initialQuery }: ServiceDialo
       setUserMessage("");
     } catch (error) {
       console.error("Error:", error);
+      toast({
+        title: "Erreur",
+        description: "Impossible de communiquer avec l'assistant pour le moment",
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }
