@@ -19,5 +19,13 @@ export const globalNews: NewsItem[] = [
     description: "Le FTSE 100 sous pression après les dernières données économiques.",
     category: "global"
   },
-  // ... Add other global news items
+  {
+    title: "Le CAC 40 porté par les résultats d'entreprises",
+    link: "#",
+    pubDate: new Date().toISOString(),
+    source: "Le Figaro",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    description: "Les sociétés françaises publient des résultats supérieurs aux attentes.",
+    category: "global"
+  }
 ];

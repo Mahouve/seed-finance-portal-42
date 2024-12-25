@@ -19,5 +19,13 @@ export const africanNews: NewsItem[] = [
     description: "L'indice NGX dépasse les 70 000 points pour la première fois de son histoire.",
     category: "africa"
   },
-  // ... Add other African news items
+  {
+    title: "Johannesburg Stock Exchange : Le secteur minier en hausse",
+    link: "#",
+    pubDate: new Date().toISOString(),
+    source: "CNBC Africa",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    description: "Les valeurs minières sud-africaines portées par la hausse des matières premières.",
+    category: "africa"
+  }
 ];
