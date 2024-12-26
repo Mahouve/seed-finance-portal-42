@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { StockTicker } from "@/components/StockTicker";
 import { DecorativeElements } from "@/components/DecorativeElements";
 import { CurrencyTabs } from "@/components/CurrencyTabs";
+import { MarketTable } from "@/components/MarketTable";
 
 const Markets = () => {
   return (
@@ -21,6 +22,13 @@ const Markets = () => {
         <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
           <div className="space-y-8 animate-fade-in">
             <CurrencyTabs />
+            <div className="mt-12">
+              <h2 className="text-2xl font-semibold mb-6">Indices Boursiers Mondiaux</h2>
+              <p className="text-muted-foreground mb-6">
+                Suivez les principaux indices boursiers mondiaux avec des mises à jour en temps réel.
+              </p>
+              <MarketTable />
+            </div>
           </div>
           <div className="animate-fade-in [animation-delay:200ms]">
             <FinanceNews />

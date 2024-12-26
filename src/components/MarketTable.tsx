@@ -61,12 +61,39 @@ const mockMarketData: MarketData[] = [
     currency: "JPY",
     lastUpdate: new Date().toISOString(),
   },
+  {
+    symbol: "^HSI",
+    name: "Hang Seng",
+    price: 16645.98,
+    change: -156.32,
+    changePercent: -0.93,
+    country: "Hong Kong",
+    currency: "HKD",
+    lastUpdate: new Date().toISOString(),
+  },
+  {
+    symbol: "^FTSE",
+    name: "FTSE 100",
+    price: 7612.45,
+    change: 32.18,
+    changePercent: 0.42,
+    country: "Royaume-Uni",
+    currency: "GBP",
+    lastUpdate: new Date().toISOString(),
+  },
 ];
 
 const fetchMarketData = async (): Promise<MarketData[]> => {
   // Dans un environnement de production, remplacer par un vrai appel API
   return new Promise((resolve) => {
-    setTimeout(() => resolve(mockMarketData), 1000);
+    const updatedData = mockMarketData.map(market => ({
+      ...market,
+      price: market.price * (1 + (Math.random() - 0.5) * 0.01),
+      change: market.change * (1 + (Math.random() - 0.5) * 0.1),
+      changePercent: market.changePercent * (1 + (Math.random() - 0.5) * 0.1),
+      lastUpdate: new Date().toISOString()
+    }));
+    setTimeout(() => resolve(updatedData), 1000);
   });
 };
 
@@ -74,7 +101,7 @@ export const MarketTable = () => {
   const { data: marketData, isLoading } = useQuery({
     queryKey: ["marketData"],
     queryFn: fetchMarketData,
-    refetchInterval: 30000, // Actualisation toutes les 30 secondes
+    refetchInterval: 10000, // Actualisation toutes les 10 secondes
   });
 
   if (isLoading) {
