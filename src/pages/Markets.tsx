@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { StockTicker } from "@/components/StockTicker";
 import { DecorativeElements } from "@/components/DecorativeElements";
 import { CurrencyTabs } from "@/components/CurrencyTabs";
-import { MarketTable } from "@/components/MarketTable";
+import { TradingViewWidget } from "@/components/TradingViewWidget";
 
 const Markets = () => {
   return (
@@ -27,7 +27,7 @@ const Markets = () => {
               <p className="text-muted-foreground mb-6">
                 Suivez les principaux indices boursiers mondiaux avec des mises à jour en temps réel.
               </p>
-              <MarketTable />
+              <TradingViewWidget />
             </div>
           </div>
           <div className="animate-fade-in [animation-delay:200ms]">
