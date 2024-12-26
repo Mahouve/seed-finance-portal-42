@@ -75,7 +75,7 @@ export const Services = () => {
         </div>
       </div>
 
-      {showSimulator && <CreditSimulator />}
+      <CreditSimulator open={showSimulator} onOpenChange={setShowSimulator} />
     </section>
   );
 };

@@ -4,7 +4,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Calculator, MessageSquare } from "lucide-react";
@@ -17,7 +16,12 @@ import { BudgetForm, type BudgetInfo } from "./budget/BudgetForm";
 import { ExpenseChart } from "./budget/ExpenseChart";
 import { AddExpenseForm } from "./budget/AddExpenseForm";
 
-export const CreditSimulator = () => {
+interface CreditSimulatorProps {
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
+export const CreditSimulator = ({ open, onOpenChange }: CreditSimulatorProps) => {
   const [amount, setAmount] = useState<string>("");
   const [rate, setRate] = useState<string>("");
   const [duration, setDuration] = useState<string>("");
@@ -84,13 +88,7 @@ export const CreditSimulator = () => {
   };
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2">
-          <Calculator className="w-4 h-4" />
-          Simulateur de crédit
-        </Button>
-      </DialogTrigger>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl h-[90vh]">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-2xl font-bold">
