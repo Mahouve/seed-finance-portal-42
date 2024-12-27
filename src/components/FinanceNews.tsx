@@ -8,13 +8,22 @@ import { useFinanceNews } from "@/hooks/useFinanceNews";
 import { NewsFilters } from "@/types/news";
 import { Badge } from "@/components/ui/badge";
 import { newsSources } from "@/data/newsSources";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+import { Filter } from "lucide-react";
 
 export const FinanceNews = () => {
   const [filters, setFilters] = useState<NewsFilters>({
     categories: [],
     sources: [],
     searchQuery: "",
-    limit: 20, // Augmentation du nombre d'articles à afficher
+    limit: 50, // Augmentation du nombre d'articles à afficher
   });
 
   const { data: news, isLoading } = useFinanceNews(filters);
@@ -29,6 +38,15 @@ export const FinanceNews = () => {
       categories: prev.categories.includes(category)
         ? prev.categories.filter((c) => c !== category)
         : [...prev.categories, category],
+    }));
+  };
+
+  const toggleSource = (sourceId: string) => {
+    setFilters((prev) => ({
+      ...prev,
+      sources: prev.sources.includes(sourceId)
+        ? prev.sources.filter((s) => s !== sourceId)
+        : [...prev.sources, sourceId],
     }));
   };
 
@@ -56,12 +74,43 @@ export const FinanceNews = () => {
       <CardHeader className="space-y-4">
         <CardTitle className="text-xl font-semibold">Actualités Financières</CardTitle>
         <div className="space-y-4">
-          <Input
-            type="search"
-            placeholder="Rechercher dans les actualités..."
-            className="w-full"
-            onChange={(e) => handleSearch(e.target.value)}
-          />
+          <div className="flex gap-2">
+            <Input
+              type="search"
+              placeholder="Rechercher dans les actualités..."
+              className="w-full"
+              onChange={(e) => handleSearch(e.target.value)}
+            />
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <Filter className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-[200px]">
+                <div className="p-2">
+                  <div className="font-medium mb-2">Sources</div>
+                  <div className="space-y-2">
+                    {newsSources.map((source) => (
+                      <div key={source.id} className="flex items-center space-x-2">
+                        <Checkbox
+                          id={source.id}
+                          checked={filters.sources.includes(source.id)}
+                          onCheckedChange={() => toggleSource(source.id)}
+                        />
+                        <label
+                          htmlFor={source.id}
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          {source.name}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           <div className="flex flex-wrap gap-2">
             <Badge
               variant={filters.categories.includes("global") ? "default" : "outline"}
@@ -90,7 +139,7 @@ export const FinanceNews = () => {
           <TabsContent value="all" className="mt-4">
             <ScrollArea className="h-[600px] pr-4">
               <div className="space-y-6">
-                {sortedNews?.slice(0, 20).map((article, index) => (
+                {sortedNews?.slice(0, filters.limit).map((article, index) => (
                   <NewsArticle key={index} article={article} />
                 ))}
               </div>
@@ -104,7 +153,7 @@ export const FinanceNews = () => {
                     const source = newsSources.find((s) => s.name === article.source);
                     return source?.language === "fr";
                   })
-                  .slice(0, 20)
+                  .slice(0, filters.limit)
                   .map((article, index) => (
                     <NewsArticle key={index} article={article} />
                   ))}
@@ -119,7 +168,7 @@ export const FinanceNews = () => {
                     const source = newsSources.find((s) => s.name === article.source);
                     return source?.language === "en";
                   })
-                  .slice(0, 20)
+                  .slice(0, filters.limit)
                   .map((article, index) => (
                     <NewsArticle key={index} article={article} />
                   ))}

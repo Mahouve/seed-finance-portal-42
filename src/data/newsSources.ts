@@ -5,85 +5,43 @@ export const newsSources: NewsSource[] = [
   { id: 'bloomberg', name: 'Bloomberg', url: 'https://www.bloomberg.com/feeds/news.rss', category: 'global', language: 'en' },
   { id: 'reuters', name: 'Reuters', url: 'https://www.reuters.com/rssfeed/business', category: 'global', language: 'en' },
   { id: 'ft', name: 'Financial Times', url: 'https://www.ft.com/rss/home', category: 'global', language: 'en' },
-  { id: 'wsj', name: 'Wall Street Journal', url: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml', category: 'global', language: 'en' },
-  { id: 'cnbc', name: 'CNBC', url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', category: 'global', language: 'en' },
+  { id: 'yahoo', name: 'Yahoo Finance', url: 'https://finance.yahoo.com/news/rssindex', category: 'global', language: 'en' },
+  { id: 'investopedia', name: 'Investopedia', url: 'https://www.investopedia.com/feedbuilder/feed/getfeed', category: 'global', language: 'en' },
   { id: 'marketwatch', name: 'MarketWatch', url: 'http://feeds.marketwatch.com/marketwatch/topstories/', category: 'global', language: 'en' },
-  { id: 'businessinsider', name: 'Business Insider', url: 'https://www.businessinsider.com/rss', category: 'global', language: 'en' },
-  { id: 'forbes', name: 'Forbes', url: 'https://www.forbes.com/business/feed/', category: 'global', language: 'en' },
+  { id: 'cnbc', name: 'CNBC', url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', category: 'global', language: 'en' },
   { id: 'economist', name: 'The Economist', url: 'https://www.economist.com/finance-and-economics/rss.xml', category: 'global', language: 'en' },
+  { id: 'wsj', name: 'Wall Street Journal', url: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml', category: 'global', language: 'en' },
+  { id: 'forbes', name: 'Forbes', url: 'https://www.forbes.com/business/feed/', category: 'global', language: 'en' },
+  { id: 'seekingalpha', name: 'Seeking Alpha', url: 'https://seekingalpha.com/feed.xml', category: 'global', language: 'en' },
+  { id: 'morningstar', name: 'Morningstar', url: 'https://www.morningstar.com/rss/articles', category: 'global', language: 'en' },
+  { id: 'tradingeconomics', name: 'Trading Economics', url: 'https://tradingeconomics.com/rss/news.aspx', category: 'global', language: 'en' },
+  { id: 'zacks', name: 'Zacks Investment', url: 'https://www.zacks.com/rss/news', category: 'global', language: 'en' },
+  { id: 'stockcharts', name: 'StockCharts', url: 'https://stockcharts.com/rss/news', category: 'global', language: 'en' },
+  { id: 'ftserussell', name: 'FTSE Russell', url: 'https://www.ftserussell.com/rss.xml', category: 'global', language: 'en' },
   
   // Sources Françaises
   { id: 'lesechos', name: 'Les Échos', url: 'https://services.lesechos.fr/rss/les-echos-finance.xml', category: 'global', language: 'fr' },
   { id: 'latribune', name: 'La Tribune', url: 'https://www.latribune.fr/rss/finance-marches-17.html', category: 'global', language: 'fr' },
-  { id: 'capital', name: 'Capital', url: 'https://www.capital.fr/rss', category: 'global', language: 'fr' },
   { id: 'challenges', name: 'Challenges', url: 'https://www.challenges.fr/rss.xml', category: 'global', language: 'fr' },
-  { id: 'bfmbusiness', name: 'BFM Business', url: 'https://www.bfmtv.com/rss/economie/', category: 'global', language: 'fr' },
-  { id: 'investir', name: 'Investir', url: 'https://investir.lesechos.fr/rss/', category: 'global', language: 'fr' },
-  { id: 'boursier', name: 'Boursier.com', url: 'https://www.boursier.com/rss/news.xml', category: 'global', language: 'fr' },
-  { id: 'boursorama', name: 'Boursorama', url: 'https://www.boursorama.com/rss/actualites.rss', category: 'global', language: 'fr' },
-  { id: 'zonebourse', name: 'Zone Bourse', url: 'https://www.zonebourse.com/rss/actualites.xml', category: 'global', language: 'fr' },
   
-  // Sources Africaines Francophones
-  { id: 'financialafrik', name: 'Financial Afrik', url: 'https://www.financialafrik.com/feed/', category: 'africa', language: 'fr' },
-  { id: 'jeuneafrique', name: 'Jeune Afrique Économie', url: 'https://www.jeuneafrique.com/rss/economie/', category: 'africa', language: 'fr' },
-  { id: 'agenceecofin', name: 'Agence Ecofin', url: 'https://www.agenceecofin.com/rss', category: 'africa', language: 'fr' },
-  { id: 'africanmanager', name: 'African Manager', url: 'https://africanmanager.com/feed/', category: 'africa', language: 'fr' },
-  { id: 'afriqueitnews', name: 'Afrique IT News', url: 'https://afriqueitnews.com/feed/', category: 'africa', language: 'fr' },
-  { id: 'lebureauafrique', name: 'Le Bureau Afrique', url: 'https://lebureauafrique.com/feed/', category: 'africa', language: 'fr' },
-  { id: 'africanews', name: 'Africanews FR', url: 'https://fr.africanews.com/rss', category: 'africa', language: 'fr' },
-  
-  // Sources Africaines Anglophones
+  // Sources Africaines
   { id: 'africanbusiness', name: 'African Business', url: 'https://african.business/feed/', category: 'africa', language: 'en' },
   { id: 'africareport', name: 'The Africa Report', url: 'https://www.theafricareport.com/feed/', category: 'africa', language: 'en' },
-  { id: 'businessdayng', name: 'BusinessDay NG', url: 'https://businessday.ng/feed/', category: 'africa', language: 'en' },
-  { id: 'venturesafrica', name: 'Ventures Africa', url: 'https://venturesafrica.com/feed/', category: 'africa', language: 'en' },
-  { id: 'cnbcafrica', name: 'CNBC Africa', url: 'https://www.cnbcafrica.com/feed/', category: 'africa', language: 'en' },
-  
-  // Sources Marchés Émergents
-  { id: 'emergingmarkets', name: 'Emerging Markets', url: 'https://www.emergingmarkets.org/rss/rss.xml', category: 'global', language: 'en' },
-  { id: 'asiafinancial', name: 'Asia Financial', url: 'https://www.asiafinancial.com/feed', category: 'global', language: 'en' },
-  { id: 'gulfbusiness', name: 'Gulf Business', url: 'https://gulfbusiness.com/feed/', category: 'global', language: 'en' },
-  
-  // Sources Crypto & Fintech
-  { id: 'cointelegraph', name: 'Cointelegraph', url: 'https://cointelegraph.com/rss', category: 'global', language: 'en' },
-  { id: 'coindesk', name: 'CoinDesk', url: 'https://www.coindesk.com/arc/outboundfeeds/rss/', category: 'global', language: 'en' },
-  { id: 'cryptonaute', name: 'Cryptonaute', url: 'https://cryptonaute.fr/feed/', category: 'global', language: 'fr' },
-  { id: 'journaldunet', name: 'JDN Économie', url: 'https://www.journaldunet.com/rss/economie.xml', category: 'global', language: 'fr' },
-  
-  // Sources ESG & Finance Durable
-  { id: 'esgtoday', name: 'ESG Today', url: 'https://www.esgtoday.com/feed/', category: 'global', language: 'en' },
-  { id: 'novethic', name: 'Novethic', url: 'https://www.novethic.fr/rss/actualite.rss', category: 'global', language: 'fr' },
-  
-  // Sources Banques Centrales
-  { id: 'ecb', name: 'European Central Bank', url: 'https://www.ecb.europa.eu/rss/press.html', category: 'global', language: 'en' },
-  { id: 'fed', name: 'Federal Reserve', url: 'https://www.federalreserve.gov/feeds/press_all.xml', category: 'global', language: 'en' },
-  { id: 'bceao', name: 'BCEAO', url: 'https://www.bceao.int/fr/rss.xml', category: 'africa', language: 'fr' },
-  { id: 'beac', name: 'BEAC', url: 'https://www.beac.int/feed/', category: 'africa', language: 'fr' },
-  
-  // Sources Finance Islamique
-  { id: 'islamicfinance', name: 'Islamic Finance News', url: 'https://www.islamicfinancenews.com/feed', category: 'global', language: 'en' },
-  { id: 'islamicmarkets', name: 'Islamic Markets', url: 'https://islamicmarkets.com/feed', category: 'global', language: 'en' },
-  
-  // Sources Finance Personnelle
-  { id: 'moneyvox', name: 'MoneyVox', url: 'https://www.moneyvox.fr/rss/actu.xml', category: 'global', language: 'fr' },
-  { id: 'cbanque', name: 'cBanque', url: 'https://www.cbanque.com/rss/actualites.xml', category: 'global', language: 'fr' },
-  { id: 'investopedia', name: 'Investopedia', url: 'https://www.investopedia.com/feedbuilder/feed/getfeed?feedName=rss_articles', category: 'global', language: 'en' },
-  
-  // Sources Trading & Analyse Technique
-  { id: 'tradingsat', name: 'TradingSat', url: 'https://www.tradingsat.com/rss/actualites.xml', category: 'global', language: 'fr' },
-  { id: 'dailyfx', name: 'DailyFX', url: 'https://www.dailyfx.com/feeds/market-news', category: 'global', language: 'en' },
-  { id: 'investing', name: 'Investing.com', url: 'https://fr.investing.com/rss/news.rss', category: 'global', language: 'fr' },
-  
-  // Nouvelles sources ajoutées
-  { id: 'lepoint', name: 'Le Point Économie', url: 'https://www.lepoint.fr/economie/rss.xml', category: 'global', language: 'fr' },
-  { id: 'lexpansion', name: 'L\'Expansion', url: 'https://lexpansion.lexpress.fr/rss/economie.xml', category: 'global', language: 'fr' },
-  { id: 'lemonde', name: 'Le Monde Économie', url: 'https://www.lemonde.fr/economie/rss_full.xml', category: 'global', language: 'fr' },
-  { id: 'lefigaro', name: 'Le Figaro Économie', url: 'https://www.lefigaro.fr/rss/figaro_economie.xml', category: 'global', language: 'fr' },
-  { id: 'usinenouvelle', name: 'L\'Usine Nouvelle', url: 'https://www.usinenouvelle.com/rss/', category: 'global', language: 'fr' },
-  { id: 'optionfinance', name: 'Option Finance', url: 'https://www.optionfinance.fr/rss.xml', category: 'global', language: 'fr' },
-  { id: 'agefi', name: 'L\'Agefi', url: 'https://www.agefi.fr/rss.xml', category: 'global', language: 'fr' },
-  { id: 'afrique360', name: 'Afrique360', url: 'https://afrique360.com/feed/', category: 'africa', language: 'fr' },
-  { id: 'afriqueeconomie', name: 'Afrique Économie', url: 'https://afriqueeconomie.net/feed/', category: 'africa', language: 'fr' },
-  { id: 'financialnigeria', name: 'Financial Nigeria', url: 'https://www.financialnigeria.com/rss.xml', category: 'africa', language: 'en' },
-  { id: 'businessinafrica', name: 'Business in Africa', url: 'https://www.businessinafrica.net/feed/', category: 'africa', language: 'en' }
+  { id: 'jeuneafrique', name: 'Jeune Afrique', url: 'https://www.jeuneafrique.com/rss/economie/', category: 'africa', language: 'fr' },
+  { id: 'agenceecofin', name: 'Agence Ecofin', url: 'https://www.agenceecofin.com/rss', category: 'africa', language: 'fr' },
+  { id: 'financialafrik', name: 'Financial Afrik', url: 'https://www.financialafrik.com/feed/', category: 'africa', language: 'fr' },
+  { id: 'commodafrica', name: 'CommodAfrica', url: 'https://www.commodafrica.com/rss.xml', category: 'africa', language: 'fr' },
+  { id: 'businessdayafrica', name: 'Business Day Africa', url: 'https://businessday.ng/feed/', category: 'africa', language: 'en' },
+  { id: 'latribuneafrique', name: 'La Tribune Afrique', url: 'https://afrique.latribune.fr/rss.xml', category: 'africa', language: 'fr' },
+  { id: 'forbesafrique', name: 'Forbes Afrique', url: 'https://forbesafrique.com/feed/', category: 'africa', language: 'fr' },
+  { id: 'afdb', name: 'Banque Africaine de Développement', url: 'https://www.afdb.org/fr/rss.xml', category: 'africa', language: 'fr' },
+  { id: 'africaintelligence', name: 'Africa Intelligence', url: 'https://www.africaintelligence.com/rss', category: 'africa', language: 'fr' },
+  { id: 'africanmarkets', name: 'African Markets', url: 'https://www.african-markets.com/en/news/feed', category: 'africa', language: 'en' },
+  { id: 'nairametrics', name: 'Nairametrics', url: 'https://nairametrics.com/feed/', category: 'africa', language: 'en' },
+  { id: 'afristat', name: 'AFRISTAT', url: 'https://afristat.org/feed/', category: 'africa', language: 'fr' },
+  { id: 'eabw', name: 'East African Business Week', url: 'https://www.busiweek.com/feed/', category: 'africa', language: 'en' },
+  { id: 'monitor', name: 'Daily Monitor Uganda', url: 'https://www.monitor.co.ug/business/rss', category: 'africa', language: 'en' },
+  { id: 'enca', name: 'ENCA Business', url: 'https://www.enca.com/business/rss', category: 'africa', language: 'en' },
+  { id: 'afriquerenouveau', name: 'Afrique Renouveau', url: 'https://www.un.org/africarenewal/fr/rss.xml', category: 'africa', language: 'fr' },
+  { id: 'thecitizen', name: 'The Citizen Tanzania', url: 'https://www.thecitizen.co.tz/tanzania/rss', category: 'africa', language: 'en' }
 ];
