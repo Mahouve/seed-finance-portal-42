@@ -6,6 +6,7 @@ import { DecorativeElements } from "@/components/DecorativeElements";
 import { CurrencyTabs } from "@/components/CurrencyTabs";
 import { TradingViewWidget } from "@/components/TradingViewWidget";
 import { MarketTable } from "@/components/MarketTable";
+import { CryptoConverter } from "@/components/CryptoConverter";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -71,6 +72,18 @@ const Markets = () => {
                   </CardHeader>
                   <CardContent>
                     <CurrencyTabs />
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Crypto-monnaies</CardTitle>
+                    <CardDescription>
+                      Convertisseur et suivi des principales crypto-monnaies
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <CryptoConverter />
                   </CardContent>
                 </Card>
 
