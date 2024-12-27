@@ -53,18 +53,27 @@ const BookDedication = () => {
       <main className="container mx-auto px-4 pt-32 pb-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Les clés de l'autonomie financière - Livre
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Découvrez "Les clés de l'autonomie financière"
-          </p>
-          <p className="text-lg text-gray-700 mb-6">
-            Prenez le contrôle de votre avenir financier dès aujourd'hui !
-          </p>
-          <p className="text-lg text-gray-700 mb-12">
-            Êtes-vous prêt(e) à transformer votre relation avec l'argent et à bâtir une vie financièrement stable et indépendante ?
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+            <img
+              src="/lovable-uploads/2820c143-f552-4781-896f-1b024ce9a1b2.png"
+              alt="Les clés de l'autonomie financière - Livre"
+              className="w-64 h-auto rounded-lg shadow-xl"
+            />
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                Les clés de l'autonomie financière - Livre
+              </h1>
+              <p className="text-xl text-gray-600 mb-8">
+                Découvrez "Les clés de l'autonomie financière"
+              </p>
+              <p className="text-lg text-gray-700 mb-6">
+                Prenez le contrôle de votre avenir financier dès aujourd'hui !
+              </p>
+              <p className="text-lg text-gray-700 mb-12">
+                Êtes-vous prêt(e) à transformer votre relation avec l'argent et à bâtir une vie financièrement stable et indépendante ?
+              </p>
+            </div>
+          </div>
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -112,7 +121,7 @@ const BookDedication = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-lg">
                   <Calendar className="text-primary h-6 w-6" />
-                  <span>Lieu : To be defined</span>
+                  <span>Date : 30 janvier 2024</span>
                 </div>
                 <p className="text-gray-600">
                   Rejoignez-nous pour une conférence exclusive autour du livre "Les Clés de l'Autonomie Financière". 
@@ -227,9 +236,8 @@ const BookDedication = () => {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Registration Form Modal */}
+          {/* Registration Form Modal */}
         {showForm && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-lg p-8 max-w-md w-full">
@@ -288,6 +296,7 @@ const BookDedication = () => {
             </div>
           </div>
         )}
+        </div>
       </main>
 
       <Footer />
