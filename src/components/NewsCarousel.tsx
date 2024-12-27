@@ -55,15 +55,6 @@ export const NewsCarousel = () => {
                 >
                   <Card className="h-full border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                     <CardContent className="p-6">
-                      {article.image && (
-                        <div className="relative h-48 w-full mb-4 overflow-hidden rounded-lg">
-                          <img
-                            src={article.image}
-                            alt={article.title}
-                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      )}
                       <div className="space-y-3">
                         <h3 className="font-medium leading-tight text-lg line-clamp-2 group-hover:text-primary transition-colors">
                           {article.title}

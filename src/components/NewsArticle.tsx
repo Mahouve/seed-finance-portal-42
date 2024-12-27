@@ -13,15 +13,6 @@ export const NewsArticle = ({ article }: NewsArticleProps) => {
         rel="noopener noreferrer"
         className="block space-y-3 hover:opacity-80"
       >
-        {article.image && (
-          <div className="relative h-48 w-full overflow-hidden rounded-lg">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="object-cover w-full h-full"
-            />
-          </div>
-        )}
         <div className="space-y-2">
           <h3 className="font-medium leading-tight text-lg">{article.title}</h3>
           {article.description && (
