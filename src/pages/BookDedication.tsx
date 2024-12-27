@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { StockTicker } from "@/components/StockTicker";
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 import { Wallet2, BookOpen, GraduationCap, PiggyBank, TrendingUp, DollarSign } from "lucide-react";
 
 const BookDedication = () => {
@@ -18,6 +19,28 @@ const BookDedication = () => {
           <p className="text-xl text-gray-600">
             Conseil et formation pour les entreprises et particuliers au Cameroun et en Afrique
           </p>
+        </div>
+
+        {/* Author Section */}
+        <div className="bg-white rounded-lg shadow-xl p-8 mb-20">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <img
+                src="/lovable-uploads/2820c143-f552-4781-896f-1b024ce9a1b2.png"
+                alt="Victoire DJANHAN"
+                className="w-full max-w-md mx-auto rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-secondary">Victoire DJANHAN</h2>
+              <p className="text-gray-600">
+                Experte en finance et gestion de patrimoine, Victoire DJANHAN met son expertise au service des particuliers et des entreprises pour une meilleure gestion financière.
+              </p>
+              <p className="text-gray-600">
+                Forte d'une expérience significative dans le secteur financier, elle partage sa vision et ses connaissances à travers son livre "Les Clés de l'Autonomie Financière" et ses formations en optimisation budgétaire.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Book Section */}
@@ -62,9 +85,6 @@ const BookDedication = () => {
               alt="Les clés de l'autonomie financière - Livre"
               className="w-full max-w-md mx-auto rounded-lg shadow-xl"
             />
-            <p className="text-center mt-4 text-gray-600 italic">
-              Les Clés de l'Autonomie Financière par Victoire DJANHAN
-            </p>
           </div>
         </div>
 
@@ -120,6 +140,8 @@ const BookDedication = () => {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };
