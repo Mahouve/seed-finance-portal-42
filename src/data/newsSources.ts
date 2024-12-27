@@ -73,4 +73,17 @@ export const newsSources: NewsSource[] = [
   { id: 'tradingsat', name: 'TradingSat', url: 'https://www.tradingsat.com/rss/actualites.xml', category: 'global', language: 'fr' },
   { id: 'dailyfx', name: 'DailyFX', url: 'https://www.dailyfx.com/feeds/market-news', category: 'global', language: 'en' },
   { id: 'investing', name: 'Investing.com', url: 'https://fr.investing.com/rss/news.rss', category: 'global', language: 'fr' },
+  
+  // Nouvelles sources ajoutées
+  { id: 'lepoint', name: 'Le Point Économie', url: 'https://www.lepoint.fr/economie/rss.xml', category: 'global', language: 'fr' },
+  { id: 'lexpansion', name: 'L\'Expansion', url: 'https://lexpansion.lexpress.fr/rss/economie.xml', category: 'global', language: 'fr' },
+  { id: 'lemonde', name: 'Le Monde Économie', url: 'https://www.lemonde.fr/economie/rss_full.xml', category: 'global', language: 'fr' },
+  { id: 'lefigaro', name: 'Le Figaro Économie', url: 'https://www.lefigaro.fr/rss/figaro_economie.xml', category: 'global', language: 'fr' },
+  { id: 'usinenouvelle', name: 'L\'Usine Nouvelle', url: 'https://www.usinenouvelle.com/rss/', category: 'global', language: 'fr' },
+  { id: 'optionfinance', name: 'Option Finance', url: 'https://www.optionfinance.fr/rss.xml', category: 'global', language: 'fr' },
+  { id: 'agefi', name: 'L\'Agefi', url: 'https://www.agefi.fr/rss.xml', category: 'global', language: 'fr' },
+  { id: 'afrique360', name: 'Afrique360', url: 'https://afrique360.com/feed/', category: 'africa', language: 'fr' },
+  { id: 'afriqueeconomie', name: 'Afrique Économie', url: 'https://afriqueeconomie.net/feed/', category: 'africa', language: 'fr' },
+  { id: 'financialnigeria', name: 'Financial Nigeria', url: 'https://www.financialnigeria.com/rss.xml', category: 'africa', language: 'en' },
+  { id: 'businessinafrica', name: 'Business in Africa', url: 'https://www.businessinafrica.net/feed/', category: 'africa', language: 'en' }
 ];
