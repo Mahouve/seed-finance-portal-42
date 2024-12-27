@@ -1,44 +1,36 @@
 import { MessageSquare, Headphones, Info, User } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ServiceDialog } from "@/components/ServiceDialog";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   {
     icon: MessageSquare,
     title: "FAQ",
     description: "Trouvez rapidement des réponses aux questions les plus fréquentes",
-    query: "Montrez-moi la FAQ de SEED Finance avec les questions les plus fréquentes"
+    path: "/support/faq"
   },
   {
     icon: Headphones,
     title: "Support Technique",
     description: "Assistance technique pour vos problèmes spécifiques",
-    query: "J'ai besoin d'assistance technique pour SEED Finance"
+    path: "/support/technical-support"
   },
   {
     icon: Info,
     title: "Guides & Tutoriels",
     description: "Ressources détaillées pour vous guider pas à pas",
-    query: "Montrez-moi les guides et tutoriels disponibles"
+    path: "/support/guides"
   },
   {
     icon: User,
     title: "Compte & Sécurité",
     description: "Gérez votre compte et vos paramètres de sécurité",
-    query: "Comment puis-je gérer mon compte et mes paramètres de sécurité?"
+    path: "/support/account"
   }
 ];
 
 export const SupportCategories = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedQuery, setSelectedQuery] = useState("");
-
-  const handleCategoryClick = (query: string) => {
-    setSelectedQuery(query);
-    setIsDialogOpen(true);
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="py-20 bg-gray-50">
@@ -50,8 +42,9 @@ export const SupportCategories = () => {
           {categories.map((category, index) => (
             <Card 
               key={category.title}
-              className="p-6 hover:shadow-lg transition-all duration-300 animate-fade-in"
+              className="p-6 hover:shadow-lg transition-all duration-300 animate-fade-in cursor-pointer"
               style={{ animationDelay: `${index * 100}ms` }}
+              onClick={() => navigate(category.path)}
             >
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="p-3 bg-primary/10 rounded-full">
@@ -59,24 +52,11 @@ export const SupportCategories = () => {
                 </div>
                 <h3 className="text-xl font-semibold">{category.title}</h3>
                 <p className="text-gray-600">{category.description}</p>
-                <Button 
-                  variant="link" 
-                  className="text-primary mt-4"
-                  onClick={() => handleCategoryClick(category.query)}
-                >
-                  En savoir plus →
-                </Button>
               </div>
             </Card>
           ))}
         </div>
       </div>
-
-      <ServiceDialog 
-        open={isDialogOpen} 
-        onOpenChange={setIsDialogOpen}
-        initialQuery={selectedQuery}
-      />
     </section>
   );
 };

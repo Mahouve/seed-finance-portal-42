@@ -15,6 +15,10 @@ import Markets from "./pages/Markets";
 import About from "./pages/About";
 import BookDedication from "./pages/BookDedication";
 import Support from "./pages/Support";
+import FAQ from "./pages/support/FAQ";
+import TechnicalSupport from "./pages/support/TechnicalSupport";
+import Guides from "./pages/support/Guides";
+import Account from "./pages/support/Account";
 import CreditSimulator from "./pages/CreditSimulator";
 
 const queryClient = new QueryClient();
@@ -40,6 +44,10 @@ const AnimatedRoutes = () => {
           <Route path="/about" element={<About />} />
           <Route path="/book-dedication" element={<BookDedication />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/support/faq" element={<FAQ />} />
+          <Route path="/support/technical-support" element={<TechnicalSupport />} />
+          <Route path="/support/guides" element={<Guides />} />
+          <Route path="/support/account" element={<Account />} />
           <Route path="/credit-simulator" element={<CreditSimulator />} />
         </Routes>
       </motion.div>
