@@ -24,7 +24,7 @@ export const useFinanceNews = (filters: NewsFilters) => {
       // Apply category filters
       if (filters.categories.length > 0) {
         allNews = allNews.filter((article) =>
-          filters.categories.includes(article.category as "global" | "africa")
+          filters.categories.includes(article.category)
         );
       }
 
@@ -38,15 +38,10 @@ export const useFinanceNews = (filters: NewsFilters) => {
         );
       }
 
-      // Map the news data to ensure correct typing
-      const typedNews: NewsItem[] = allNews.map((article) => ({
-        title: article.title,
-        link: article.link,
-        pubDate: article.pubDate,
-        source: article.source,
-        description: article.description,
-        category: article.category as "global" | "africa",
-        image: article.image,
+      // Ensure proper typing of the category field
+      const typedNews: NewsItem[] = allNews.map(article => ({
+        ...article,
+        category: article.category as "global" | "africa" // Type assertion to ensure category is correct
       }));
 
       console.log("Filtered news:", typedNews);
