@@ -1,12 +1,14 @@
 import { BookOpen, GraduationCap, Users, ScrollText, Gamepad, BookOpenCheck, Video, Building2, Users2, BookText, Coins, UserSquare2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const sections = [
   {
     title: "Cours et Formations Interactives",
     icon: BookOpen,
     description: "Programmes éducatifs pour améliorer les compétences en investissement et gestion financière.",
+    link: "/education/cours-formations",
     items: [
       {
         icon: BookOpenCheck,
@@ -24,6 +26,7 @@ const sections = [
     title: "Webinaires et Séminaires en Direct",
     icon: Video,
     description: "Séances en ligne interactives avec des experts financiers pour discuter des tendances du marché et des stratégies d'investissement.",
+    link: "/education/webinaires",
     items: [
       {
         icon: Users,
@@ -46,6 +49,7 @@ const sections = [
     title: "Blogs et Articles",
     icon: ScrollText,
     description: "Ressources Educatives telles que Guides, articles, et vidéos sur les concepts financiers.",
+    link: "/education/blogs-articles",
     items: [
       {
         icon: BookText,
@@ -68,6 +72,7 @@ const sections = [
     title: "Jeux et Simulateurs",
     icon: Gamepad,
     description: "Outils interactifs pour tester et améliorer vos connaissances financières.",
+    link: "/education/jeux-simulateurs",
     items: [
       {
         icon: Coins,
@@ -111,9 +116,11 @@ export const EducationServices = () => {
                       </div>
                       <h3 className="text-xl font-semibold mb-3 text-primary animate-float">{item.title}</h3>
                       <p className="text-gray-600 text-sm hover:scale-95 transition-transform duration-300">{item.description}</p>
-                      <Button variant="link" className="text-primary mt-4 p-0">
-                        En savoir plus →
-                      </Button>
+                      <Link to={section.link}>
+                        <Button variant="link" className="text-primary mt-4 p-0">
+                          En savoir plus →
+                        </Button>
+                      </Link>
                     </div>
                   </Card>
                 ))}

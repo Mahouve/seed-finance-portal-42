@@ -20,6 +20,10 @@ import TechnicalSupport from "./pages/support/TechnicalSupport";
 import Guides from "./pages/support/Guides";
 import Account from "./pages/support/Account";
 import CreditSimulator from "./pages/CreditSimulator";
+import CoursFormations from "./pages/education/CoursFormations";
+import Webinaires from "./pages/education/Webinaires";
+import BlogsArticles from "./pages/education/BlogsArticles";
+import JeuxSimulateurs from "./pages/education/JeuxSimulateurs";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +42,10 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/education" element={<Education />} />
+          <Route path="/education/cours-formations" element={<CoursFormations />} />
+          <Route path="/education/webinaires" element={<Webinaires />} />
+          <Route path="/education/blogs-articles" element={<BlogsArticles />} />
+          <Route path="/education/jeux-simulateurs" element={<JeuxSimulateurs />} />
           <Route path="/entreprise" element={<Entreprise />} />
           <Route path="/particulier" element={<Particulier />} />
           <Route path="/markets" element={<Markets />} />
