@@ -14,6 +14,7 @@ export const FinanceNews = () => {
     categories: [],
     sources: [],
     searchQuery: "",
+    limit: 20, // Augmentation du nombre d'articles à afficher
   });
 
   const { data: news, isLoading } = useFinanceNews(filters);
@@ -45,6 +46,10 @@ export const FinanceNews = () => {
       </Card>
     );
   }
+
+  const sortedNews = news?.sort((a, b) => 
+    new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+  );
 
   return (
     <Card className="h-full">
@@ -85,7 +90,7 @@ export const FinanceNews = () => {
           <TabsContent value="all" className="mt-4">
             <ScrollArea className="h-[600px] pr-4">
               <div className="space-y-6">
-                {news?.map((article, index) => (
+                {sortedNews?.slice(0, 20).map((article, index) => (
                   <NewsArticle key={index} article={article} />
                 ))}
               </div>
@@ -94,11 +99,12 @@ export const FinanceNews = () => {
           <TabsContent value="fr" className="mt-4">
             <ScrollArea className="h-[600px] pr-4">
               <div className="space-y-6">
-                {news
+                {sortedNews
                   ?.filter((article) => {
                     const source = newsSources.find((s) => s.name === article.source);
                     return source?.language === "fr";
                   })
+                  .slice(0, 20)
                   .map((article, index) => (
                     <NewsArticle key={index} article={article} />
                   ))}
@@ -108,11 +114,12 @@ export const FinanceNews = () => {
           <TabsContent value="en" className="mt-4">
             <ScrollArea className="h-[600px] pr-4">
               <div className="space-y-6">
-                {news
+                {sortedNews
                   ?.filter((article) => {
                     const source = newsSources.find((s) => s.name === article.source);
                     return source?.language === "en";
                   })
+                  .slice(0, 20)
                   .map((article, index) => (
                     <NewsArticle key={index} article={article} />
                   ))}

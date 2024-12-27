@@ -20,4 +20,5 @@ export interface NewsFilters {
   categories: string[];
   sources: string[];
   searchQuery: string;
+  limit?: number;
 }
