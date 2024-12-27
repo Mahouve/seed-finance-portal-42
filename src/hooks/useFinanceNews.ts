@@ -39,7 +39,7 @@ const fetchNews = async (filters: NewsFilters): Promise<NewsItem[]> => {
       pubDate: new Date(Date.now() - (i + 3) * 3600000).toISOString(),
       source: newsSources[i % newsSources.length].name,
       description: `Description de l'article de test ${i + 4}...`,
-      category: i % 2 === 0 ? "global" : "africa",
+      category: i % 2 === 0 ? "global" : "africa" as const,
       image: i % 3 === 0 ? `https://example.com/image${i + 4}.jpg` : undefined
     }))
   ];
