@@ -12,17 +12,27 @@ interface CryptoData {
 }
 
 const fetchCryptoData = async () => {
-  const response = await fetch(
-    "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple&vs_currencies=usd&include_24hr_change=true"
-  );
-  return response.json();
+  try {
+    const response = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple&vs_currencies=usd&include_24hr_change=true"
+    );
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching crypto data:", error);
+    throw error;
+  }
 };
 
 export const CryptoConverter = () => {
   const [amount, setAmount] = useState("1");
   const [selectedCrypto, setSelectedCrypto] = useState("bitcoin");
 
-  const { data: cryptoData, isLoading } = useQuery<CryptoData>({
+  const { data: cryptoData, isLoading, isError } = useQuery<CryptoData>({
     queryKey: ["cryptoPrices"],
     queryFn: fetchCryptoData,
     refetchInterval: 30000, // Refresh every 30 seconds
@@ -37,6 +47,21 @@ export const CryptoConverter = () => {
   const getChangeColor = (change: number) => {
     return change >= 0 ? "text-green-600" : "text-red-600";
   };
+
+  if (isError) {
+    return (
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle>Convertisseur Crypto</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center text-red-600">
+            Erreur de chargement des données. Veuillez réessayer plus tard.
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card className="w-full">
