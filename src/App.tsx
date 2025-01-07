@@ -13,6 +13,7 @@ import Entreprise from "./pages/Entreprise";
 import Particulier from "./pages/Particulier";
 import Markets from "./pages/Markets";
 import About from "./pages/About";
+import Events from "./pages/Events";
 import BookDedication from "./pages/BookDedication";
 import Support from "./pages/Support";
 import FAQ from "./pages/support/FAQ";
@@ -50,6 +51,7 @@ const AnimatedRoutes = () => {
           <Route path="/particulier" element={<Particulier />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/about" element={<About />} />
+          <Route path="/events" element={<Events />} />
           <Route path="/book-dedication" element={<BookDedication />} />
           <Route path="/support" element={<Support />} />
           <Route path="/support/faq" element={<FAQ />} />

@@ -78,6 +78,9 @@ export const Navigation = () => {
             <Link to="/support" className="nav-link">
               Support Client
             </Link>
+            <Link to="/events" className="nav-link">
+              Événements
+            </Link>
             <Link to="/book-dedication">
               <Button 
                 variant="default" 
@@ -86,7 +89,6 @@ export const Navigation = () => {
                 Dédicace du Livre
               </Button>
             </Link>
-
           </div>
 
           {/* Mobile Navigation Button */}
@@ -123,8 +125,11 @@ export const Navigation = () => {
               <Link to="/education" className="nav-link">
                 Éducation Financière
               </Link>
-              <Link to="#" className="nav-link">
+              <Link to="/support" className="nav-link">
                 Support Client
+              </Link>
+              <Link to="/events" className="nav-link">
+                Événements
               </Link>
               <div className="px-4">
                 <Link to="/book-dedication">
