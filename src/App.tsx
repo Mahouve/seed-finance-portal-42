@@ -71,7 +71,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/">
+        <BrowserRouter>
           <SplashScreen />
           <AnimatedRoutes />
           <AIAssistantDrawer />
