@@ -41,7 +41,7 @@ export const Hero = () => {
             size="lg"
             variant="outline"
             className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg font-medium px-10 py-6 rounded-full shadow-md hover:shadow-lg transition-all"
-            onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSeJthD93yMjD6BCGl2QCh3_OJJP-vulvYfy2aESzo0L-qfWcA/viewform', '_blank')}
+            onClick={() => window.location.href = '/register'}
           >
             S'inscrire
           </Button>

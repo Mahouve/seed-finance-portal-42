@@ -8,6 +8,7 @@ import { SplashScreen } from "@/components/SplashScreen";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
+import Register from "./pages/Register";
 import Education from "./pages/Education";
 import Entreprise from "./pages/Entreprise";
 import Particulier from "./pages/Particulier";
@@ -42,6 +43,7 @@ const AnimatedRoutes = () => {
       >
         <Routes location={location}>
           <Route path="/" element={<Index />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/education" element={<Education />} />
           <Route path="/education/cours-formations" element={<CoursFormations />} />
           <Route path="/education/webinaires" element={<Webinaires />} />
