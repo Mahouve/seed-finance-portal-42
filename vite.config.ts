@@ -7,7 +7,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: true,
     port: 8080,
-    strictPort: true
+    strictPort: true,
+    hmr: {
+      clientPort: 443
+    }
   },
   base: "",
   plugins: [
